@@ -2,6 +2,7 @@
 
 import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
+import { resolve } from '@angular/compiler-cli';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -10,14 +11,22 @@ export default defineConfig(({ mode }) => ({
   },
   resolve: {
     mainFields: ['module'],
+    alias: [
+      { find: "@", replacement: resolve(__dirname, "./src") },
+      {find: '~primeng', replacement: resolve(__dirname, 'node_modules/primeng')}
+    ]
   },
+  
   plugins: [
     analog({
       content: {
         highlighter: 'shiki',
       },
       prerender: {
-        routes: ['/blog', '/blog/2022-12-27-my-first-post'],
+        routes: ['/blog', 
+          '/blog/how-to-choose-solution',
+          '/blog/web-trends-2025',
+        ],
       },
     }),
   ],

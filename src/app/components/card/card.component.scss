@@ -1,0 +1,39 @@
+.hover-block {
+  position: relative;
+  z-index: 1;
+}
+
+.hover-block:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  background: linear-gradient(
+    180deg,
+    rgba(69, 160, 245, 1) 0%,
+    rgba(38, 227, 194, 1) 100%
+  );
+  z-index: -1;
+  transition: transform 0.3s;
+  border-radius: 0.75rem;
+}
+
+.hover-block:hover {
+  @apply text-black;
+
+  .pi.pi-check {
+    @apply text-black;
+  }
+
+  hr {
+    @apply border-black;
+  }
+}
+
+.hover-block:hover::after {
+  transform: scaleY(1);
+}

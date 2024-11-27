@@ -1,0 +1,44 @@
+<ng-container *ngIf="settings">
+  <ng-container *ngIf="mode === 0">
+    <div class="movingBorder h-80 w-64 text-white mobile:max-tablet:mb-6">
+      <div class="advantage h-full w-full flex flex-col p-6">
+        <div
+          class="w-16 h-16 p-5 border rounded-2xl border-gray-400 flex bg-card"
+        >
+          <img [src]="settings.icon" alt="icon" />
+        </div>
+        <h3 class="font-bold pt-6 text-xl">{{ settings.header }}</h3>
+        <p class="text-xs pt-6">
+          {{ settings.body }}
+        </p>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="mode === 1">
+    <div class="h-96 w-72 text-white mobile:max-tablet:mb-6 hover-block">
+      <div
+        class="advantage h-full w-full flex flex-col p-6 border border-gray-400 rounded-xl"
+      >
+        <div class="flex flex-col h-full justify-between">
+          <div>
+            <h3 class="font-extrabold text-xl">{{ settings.header }}</h3>
+            <h4 class="font-light text-xss">{{ settings.subheader }}</h4>
+            <hr class="my-3" />
+            <ul>
+              <li class="text-xs pt-6" *ngFor="let item of settings.list">
+                <i class="pi pi-check text-blue-gradient mr-3"></i>
+                <span>{{ item }}</span>
+              </li>
+            </ul>
+          </div>
+          <button
+            pButton
+            label="See More"
+            class="p-button-secondary"
+            [rounded]="true"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

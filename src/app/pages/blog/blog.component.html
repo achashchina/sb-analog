@@ -1,0 +1,42 @@
+<div
+  class="articles-wrapper pt-20 desktop:max-w-[50%] tablet:max-w-[70%] mobile:max-desktop:max-w-[90%] m-auto"
+>
+  <div class="list w-full mt-6">
+    @for (post of posts; track post.attributes.slug) {
+
+    <article class="flex">
+      <div
+        class="w-4/5 flex flex-col min-h-32 justify-between mobile:max-tablet:w-full"
+      >
+        <a
+          [routerLink]="['/blog/', post.attributes.slug]"
+          class="cursor-pointer"
+        >
+          <h2 class="header font-bold text-2xl">
+            {{ post.attributes.title }}
+          </h2>
+          <div class="description pt-6">
+            <h3>
+              {{ post.attributes.description }}
+            </h3>
+          </div>
+        </a>
+        <div class="footer pt-6 flex">
+          <span>
+            {{ date | date : "MMM d" }}
+          </span>
+        </div>
+      </div>
+      <div class="w-1/5 flex justify-end mobile:max-tablet:hidden">
+        <img
+          [src]="post.attributes.coverImage"
+          class="h-32"
+          alt="WordPress, Wix, or Custom Development: How to Choose the Perfect Solution for Your Website"
+        />
+      </div>
+    </article>
+    <hr class="my-6" />
+
+    }
+  </div>
+</div>

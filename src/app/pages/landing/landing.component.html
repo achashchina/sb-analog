@@ -1,0 +1,211 @@
+<div class="scroll-watcher"></div>
+
+<div class="flex bg-body flex-col pt-20">
+  <div #wrapper class="wrapper relative w-full pt-14">
+    <button class="text-white" (click)="createFile()">TEST</button>
+    <!-- <sb-canvas [wrapper]="wrapper"></sb-canvas> -->
+    <div class="hero-section relative container to-animate">
+      <div class="w-full lg:w-1/2 relative">
+        <h1 class="text-5xl text-gradient text-animation w-full text-left">
+          Your Vision, Our Code – Custom Web Solutions That Inspire
+        </h1>
+        <p class="text-white leading-8 my-8 text-animation w-full text-left">
+          At <span class="text-gradient">Starburst</span>, we believe every
+          project is unique. Our expert developers and designers work closely
+          with you to craft web solutions that are not only functional but also
+          visually stunning. From concept to launch, we ensure every detail
+          reflects your vision, delivering a seamless online experience that
+          engages and inspires your audience.
+        </p>
+
+        <!-- <button
+          pButton
+          label="Contact Us"
+          class="p-button-accent mt-8 w-52"
+          (click)="open()"
+        ></button> -->
+      </div>
+      <div class="console-img hidden">
+        <img src="images/console.svg" />
+      </div>
+      <div class="blur-circle blue"></div>
+      <div class="blur-circle green"></div>
+    </div>
+    <div class="to-animate container py-14">
+      <h2 class="text-5xl text-gradient text-center text-animation w-full">
+        We offer a complete range of web services, from initial development to
+        maintenance and improvements.
+      </h2>
+    </div>
+  </div>
+
+  <!-- <div class="flex">
+    <div class="w-1/4 text-white">Technologies</div>
+    <div class="w-3/4">
+      <sb-carousel></sb-carousel>
+    </div>
+  </div> -->
+
+  <div class="container justify-between items-center gap-6 pb-14 !mt-4">
+    <div
+      class="to-animate flex mobile:max-tablet:flex-col mobile:max-tablet:items-center justify-between px-6 w-full"
+    >
+      <sb-card
+        [settings]="{
+          icon: 'images/colab.svg',
+          header: 'Technical Support',
+          body: 'We provide 24/7 access to highly skilled technical support engineers, ensuring exceptional expertise and reliable top-tier performance.'
+        }"
+      ></sb-card>
+      <sb-card
+        [settings]="{
+          icon: 'images/lock.svg',
+          header: 'Web Application Development',
+          body: 'We build exceptional web applications with a focus on practical solutions, elegant and intelligent design, clean code, and solid architecture.'
+        }"
+      ></sb-card>
+      <sb-card
+        [settings]="{
+          icon: 'images/chart.svg',
+          header: 'IT Strategy & Consulting',
+          body: ' Our IT consulting services empower you to prioritize your core needs while aligning software technology and financial goals with your operational objectives.'
+        }"
+      ></sb-card>
+    </div>
+  </div>
+</div>
+
+<div class="container py-14 flex-col bg-white">
+  <h2 class="text-5xl text-body text-left">Technologies:</h2>
+  <div class="technologies flex flex-col pt-14">
+    <div class="row flex w-full mb-14">
+      <div class="item w-1/3 flex justify-center items-center flex-col">
+        <img src="/images/java.svg" class="h-32" alt="java" />
+        <h3>Java</h3>
+      </div>
+      <div class="item w-1/3 flex justify-center items-center flex-col">
+        <img src="/images/angular.svg" class="h-32" alt="angular" />
+        <h3>Angular</h3>
+      </div>
+      <div class="item w-1/3 flex justify-center items-center flex-col">
+        <img src="/images/nodejs.png" class="h-32" alt="Node.js" />
+        <h3>Node.js</h3>
+      </div>
+    </div>
+    <div class="row flex w-full">
+      <div class="item w-1/3 flex justify-center items-center flex-col">
+        <img src="/images/mongo.png" class="h-32" alt="mongo" />
+        <h3>MongoDB</h3>
+      </div>
+      <div class="item w-1/3 flex justify-center items-center flex-col">
+        <img src="/images/wp.png" class="h--32" alt="WordPress" />
+        <h3>WordPress</h3>
+      </div>
+      <div class="item w-1/3 flex justify-center items-center flex-col">
+        <img src="/images/react.svg" class="h-32" alt="React" />
+        <h3>React</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex bg-body flex-col py-14">
+  <div class="container flex-col relative">
+    <h2 class="text-5xl leading-normal text-gradient text-left">
+      Compelling Reasons To Choose Us
+    </h2>
+    <div
+      class="to-animate flex mobile:max-tablet:flex-col justify-center gap-6 pt-14 text-white"
+    >
+      <sb-card
+        [mode]="mode.YES"
+        [settings]="{
+          header: 'Expert Team',
+          subheader: 'With Proven Industry Experience',
+          list: [
+            '7+ Years of Combined Expertise',
+            'Certified Professionals',
+            '50+ Projects Delivered Individually'
+          ]
+        }"
+      ></sb-card>
+      <sb-card
+        [mode]="mode.YES"
+        [settings]="{
+          header: 'Fresh Approach',
+          subheader: 'With a Focus on Innovation',
+          list: [
+            'Cutting-Edge Technology',
+            'Tailored Strategies for Each Client',
+            'Agile and Adaptable'
+          ]
+        }"
+      ></sb-card>
+      <sb-card
+        [mode]="mode.YES"
+        [settings]="{
+          header: 'Passion for Excellence',
+          subheader: 'And Building Long-Term Relationships',
+          list: [
+            'Client-Centric Mindset',
+            'Collaborative Design Process',
+            'Special Introductory Pricing'
+          ]
+        }"
+      ></sb-card>
+    </div>
+    <div class="blur-circle blue"></div>
+    <div class="blur-circle green"></div>
+  </div>
+</div>
+<div class="flex bg-body flex-col py-14 min-h-[660px]">
+  <div class="images relative">
+    <ng-container *ngFor="let item of industries">
+      <figure
+        class="absolute opacity-0"
+        [class.active]="currentIndustry?.name === item.name"
+      >
+        <picture>
+          <source type="image/webp" [srcset]="'/images/' + item.img" />
+          <img [src]="'/images/' + item.img" />
+        </picture>
+        <div
+          class="absolute w-full h-full opacity-80 bg-body top-0 bottom-0 left-0 right-0"
+        ></div>
+      </figure>
+    </ng-container>
+  </div>
+  <div class="container bg-image flex-col relative min-h-[660px]">
+    <h2 class="text-5xl leading-normal text-gradient text-left">
+      IT Services to Various Industries
+    </h2>
+    <div class="flex pt-14 text-white">
+      <div class="industries-list w-1/3">
+        <ul>
+          <ng-container *ngFor="let industry of industries; let index = index">
+            <li
+              class="mb-4"
+              (click)="currentIndustry = industry; activePicture = index"
+              [class.active]="industry.name === currentIndustry?.name"
+            >
+              {{ industry.name }}
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      <div class="industry-description w-2/3 leading-loose">
+        {{ currentIndustry?.description }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="py-2 flex bg-white">
+  <div class="w-1/2 flex flex-col">
+    <h2 class="flex m-4 text-body font-bold text-2xl">Contact US</h2>
+    <sb-contact-form></sb-contact-form>
+  </div>
+  <div class="w-1/2 relative">
+    <img src="/images/contactUs.webp" />
+  </div>
+</div>

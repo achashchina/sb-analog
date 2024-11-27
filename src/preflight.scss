@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@layer tailwind-base, primeng, tailwind-utilities, reset;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+@layer reset {
+  button,
+  input,
+  .p-component {
+    font-family: "KumbhSans", system-ui, sans-serif !important;
+  }
+
+  button {
+    &.p-button-accent {
+      @apply bg-accent border-accent rounded-3xl p-2;
+    }
+
+    &.p-button.p-button-secondary {
+      @apply text-black bg-white border border-white;
+    }
+  }
+
+  .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+    background-color: #ef4444;
+  }
+
+  .p-carousel .p-carousel-indicators .p-carousel-indicator button {
+    background-color: #d1d5db;
+    width: 1rem;
+    height: 1rem;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    border-radius: 100%;
+  }
+
+  .p-dialog,
+  .p-dialog .p-dialog-content {
+    padding: unset;
+    border: unset;
+    box-shadow: unset;
+    border-radius: unset;
+    background-color: transparent;
+    font-family: "Inter" !important;
+  }
+
+  .p-dialog .p-dialog-header {
+    display: none;
+  }
+}
+
+@layer base {
+  html,
+  body {
+    font-family: "KumbhSans", system-ui, sans-serif !important;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  button {
+    border: none;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #bbb;
+    border-radius: 5px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888;
+  }
+}

@@ -1,89 +1,60 @@
-/* Tailwind directives  */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "primeicons/primeicons.css";
+@import "./preflight.scss";
+@import url("~primeng/resources/themes/lara-light-purple/theme.css");
+@import url("~primeng/resources/primeng.min.css");
 
-/* You can add global styles to this file, and also import other style files */
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+@font-face {
+  font-family: "KumbhSans";
+  src: url("/fonts/KumbhSans.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
+html,
 body {
-  margin: 0;
+  font-family: "KumbhSans", system-ui, sans-serif !important;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1110px;
+  max-width: 92%;
+  position: relative;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@media (min-width: 1025px) {
+  .container {
+    max-width: 90%;
+  }
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+@media (max-width: 1024px) {
+  .container {
+    max-width: 90%;
+  }
 }
 
-button:hover {
-  border-color: #646cff;
+@media (max-width: 991px) {
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+@media (min-width: 768px) {
 }
 
-.card {
-  padding: 2em;
+@media (max-width: 767px) {
 }
 
-.logo {
-  @apply box-content;
-}
+.p-inputtext {
+  @apply p-1;
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  input, textarea {
+    outline: none;
   }
 
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
+  &:focus-within {
+    @apply border-gray-400;
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #e6e8fe;
   }
 }

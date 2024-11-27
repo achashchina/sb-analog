@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+import { TopMenuComponent } from './components/top-menu/top-menu.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'sb-root',
   standalone: true,
-  imports: [RouterLink, RouterOutlet],
+  imports: [RouterOutlet, TopMenuComponent],
   template: `
-    <nav>
-      <a routerLink="/">Home</a>
-    </nav>
-
+    <sb-top-menu></sb-top-menu>
     <router-outlet />
   `,
   styles: `
@@ -17,7 +15,6 @@ import { RouterLink, RouterOutlet } from '@angular/router';
       max-width: 1280px;
       margin: 0 auto;
       padding: 2rem;
-      text-align: center;
     }
 
     nav {
