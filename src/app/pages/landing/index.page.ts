@@ -73,15 +73,8 @@ export default class LandingComponent implements OnInit {
   }
 
   createFile() {
-    this.httpClient
-      .post<any[]>('/api/v1/create-md', {
-        title: 'test',
-        markdown: `
-       # test
-
-       test2
-      `,
-      })
+    return this.httpClient
+      .get<any[]>('/api/v1/get-articles')
       .subscribe((data) => console.log(data));
   }
 

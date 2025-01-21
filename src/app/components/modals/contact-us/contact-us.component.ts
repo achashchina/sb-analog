@@ -39,6 +39,7 @@ export class ContactUsComponent {
       this.dynamicDialogConfig.data?.cancelLabel || this.cancelLabel;
     this.confirmLabel =
       this.dynamicDialogConfig.data?.confirmLabel || this.confirmLabel;
+      
   }
 
   close(confirm: boolean) {
