@@ -1,6 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, InjectionToken  } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import { isPlatformBrowser } from '@angular/common';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyC4NyJoMKtl759h-yk73zzzWsNvXqgLVNs',
+  authDomain: 'async-it-over.firebaseapp.com',
+  projectId: 'async-it-over',
+  storageBucket: 'async-it-over.firebasestorage.app',
+  messagingSenderId: '707470840048',
+  appId: '1:707470840048:web:283e97cae4c48807fc7235',
+  measurementId: 'G-YMZ2XGV8CR',
+};
 
 @Component({
   selector: 'sb-root',
@@ -23,4 +38,12 @@ import { TopMenuComponent } from './components/top-menu/top-menu.component';
     }
   `,
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(@Inject(PLATFORM_ID) private platformId: InjectionToken<Object>) {
+    if (isPlatformBrowser(this.platformId)) {
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    }
+  }
+}
