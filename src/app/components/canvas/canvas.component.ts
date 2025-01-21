@@ -115,7 +115,7 @@ export class CanvasComponent implements AfterViewInit {
         this.glitters.push({
           x: Math.random() * this.canvas.width,
           y: Math.random() * this.canvas.height,
-          size: .95,
+          size: 1,
           opacity: Math.random(),
           lastInteractionTime: 0,
           vx: 0,
