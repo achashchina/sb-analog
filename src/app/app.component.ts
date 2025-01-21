@@ -39,11 +39,4 @@ const firebaseConfig = {
   `,
 })
 export class AppComponent {
-  constructor(@Inject(PLATFORM_ID) private platformId: InjectionToken<Object>) {
-    if (isPlatformBrowser(this.platformId)) {
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-    }
-  }
 }
