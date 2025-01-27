@@ -157,7 +157,18 @@
     <div class="blur-circle green"></div>
   </div>
 </div>
-<div class="flex bg-body flex-col py-14 min-h-[660px]">
+
+<div class=" flex bg-white w-[70%] m-auto py-5" id="contact-form">
+  <div class="w-1/2 flex flex-col">
+    <h2 class="flex m-4 text-body font-bold text-2xl">Contact US</h2>
+    <sb-contact-form></sb-contact-form>
+  </div>
+  <div class="w-1/2 relative">
+    <img src="/images/contactUs.webp" />
+  </div>
+</div>
+
+<div class="flex bg-body flex-col pb-14 min-h-[660px]">
   <div class="images relative">
     <ng-container *ngFor="let item of industries">
       <figure
@@ -174,7 +185,7 @@
       </figure>
     </ng-container>
   </div>
-  <div class="container bg-image flex-col relative min-h-[660px]">
+  <div class="container bg-image flex-col relative py-10">
     <h2 class="text-5xl leading-normal text-gradient text-left">
       IT Services to Various Industries
     </h2>
@@ -199,12 +210,4 @@
   </div>
 </div>
 
-<div class="py-2 flex bg-white">
-  <div class="w-1/2 flex flex-col">
-    <h2 class="flex m-4 text-body font-bold text-2xl">Contact US</h2>
-    <sb-contact-form></sb-contact-form>
-  </div>
-  <div class="w-1/2 relative">
-    <img src="/images/contactUs.webp" />
-  </div>
-</div>
+

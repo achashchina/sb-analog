@@ -11,4 +11,9 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './top-menu.component.scss',
 })
 export class TopMenuComponent {
+  scrollToForm() {
+    document.getElementById('contact-form').scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
 }
