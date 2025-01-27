@@ -70,7 +70,7 @@
       </span>
     </div>
     <div class="group flex m-4 justify-end">
-      <button pButton label="Send" class="p-button-accent" [disabled]="contactForm.invalid"></button>
+      <button pButton label="Send" class="p-button-accent" [disabled]="contactForm.invalid" (click)="send()"></button>
     </div>
   </form>
 </ng-container>

@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
@@ -20,6 +21,8 @@ import { ButtonModule } from 'primeng/button';
 export class ContactFormComponent implements OnInit {
   contactForm?: FormGroup;
 
+  constructor(private readonly httpClient: HttpClient) {}
+
   ngOnInit(): void {
     this.contactForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
@@ -35,5 +38,18 @@ export class ContactFormComponent implements OnInit {
 
   get email() {
     return this.contactForm?.get('email') || new FormControl();
+  }
+
+  send() {
+    this.httpClient
+      .post<{ statusCode: number; body: any }>(
+        '/api/v1/save-request',
+        this.contactForm.value
+      )
+      .subscribe((res) => {
+        if (res.statusCode === 200) {
+          this.contactForm.reset();
+        }
+      });
   }
 }

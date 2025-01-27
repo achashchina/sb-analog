@@ -11,7 +11,13 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.scss',
   standalone: true,
-  imports: [CommonModule,FormsModule, ButtonModule, FloatLabelModule, InputTextareaModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ButtonModule,
+    FloatLabelModule,
+    InputTextareaModule,
+  ],
 })
 export class ContactUsComponent {
   title = 'Are you sure?';
@@ -39,7 +45,6 @@ export class ContactUsComponent {
       this.dynamicDialogConfig.data?.cancelLabel || this.cancelLabel;
     this.confirmLabel =
       this.dynamicDialogConfig.data?.confirmLabel || this.confirmLabel;
-      
   }
 
   close(confirm: boolean) {
