@@ -14,10 +14,6 @@ import { DatePipe } from '@angular/common';
 })
 export default class BlogComponent implements OnInit {
   readonly posts = injectContentFiles<PostAttributes>();
-  date = Date.now();
-  date2 = Date.now() - 1;
-
   ngOnInit(): void {
-    // console.log(this.posts);
   }
 }

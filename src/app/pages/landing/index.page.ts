@@ -72,14 +72,7 @@ export default class LandingComponent implements OnInit {
     );
   }
 
-  createFile() {
-    return this.httpClient
-      .get<any[]>('/api/v1/get-articles')
-      .subscribe();
-  }
-
   getData() {
-    // return this.httpClient.get<any[]>('/api/v1/todos');
     return this.httpClient.get<{ industries: Array<Industry> }>(
       '/data/data.json'
     );
