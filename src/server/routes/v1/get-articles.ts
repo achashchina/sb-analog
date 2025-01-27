@@ -11,27 +11,26 @@ interface Article {
 }
 
 export default defineEventHandler(() => {
-  const filePath = path.resolve('src/content/blog/articles.md'); // Path to your Markdown file
 
-  if (!fs.existsSync(filePath)) {
-    return { statusCode: 404, body: { error: 'File not found.' } };
-  }
+  // if (!fs.existsSync(filePath)) {
+  //   return { statusCode: 404, body: { error: 'File not found.' } };
+  // }
 
-  const fileContent = fs.readFileSync(filePath, 'utf8');
+  // const fileContent = fs.readFileSync(filePath, 'utf8');
   const articles: Article[] = [];
 
   // Split articles by delimiter
-  const rawArticles = fileContent.split('===');
+  // const rawArticles = fileContent.split('===');
 
-  console.log(rawArticles);
+  // console.log(rawArticles);
 
-  rawArticles.forEach((rawArticle) => {
-    const parsed = matter(rawArticle.trim());
-    articles.push({
-      metadata: parsed.data, // Metadata like title, date, tags
-      content: parsed.content, // Article content
-    });
-  });
+  // rawArticles.forEach((rawArticle) => {
+  //   const parsed = matter(rawArticle.trim());
+  //   articles.push({
+  //     metadata: parsed.data, // Metadata like title, date, tags
+  //     content: parsed.content, // Article content
+  //   });
+  // });
 
   return { statusCode: 200, body: { articles } };
 });

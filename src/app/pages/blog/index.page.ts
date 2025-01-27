@@ -12,8 +12,11 @@ import { DatePipe } from '@angular/common';
   templateUrl: './blog.component.html'
 
 })
-export default class BlogComponent implements OnInit {
-  readonly posts = injectContentFiles<PostAttributes>();
-  ngOnInit(): void {
-  }
+export default class BlogComponent {
+  readonly posts = injectContentFiles<PostAttributes>((contentFile) =>
+    {
+      console.log(contentFile.filename);
+      return !contentFile.filename.includes('/src/content/blog/')
+    }
+  );
 }

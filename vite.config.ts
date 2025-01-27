@@ -23,9 +23,8 @@ export default defineConfig(({ mode }) => ({
         highlighter: 'shiki',
       },
       prerender: {
-        routes: ['/blog', 
-          '/blog/how-to-choose-solution',
-          '/blog/web-trends-2025',
+        routes: [
+         
         ],
       },
     }),
