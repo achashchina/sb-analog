@@ -30,8 +30,6 @@ export class TopMenuComponent {
           title: '',
           body: '',
         },
-        header: 'Contact Us',
-        showHeader: true,
         width: '50vw',
         modal:true,
         breakpoints: {
@@ -39,7 +37,7 @@ export class TopMenuComponent {
             '640px': '90vw'
         },
       })
-      .onClose.subscribe();
+    
     }
   }
 }

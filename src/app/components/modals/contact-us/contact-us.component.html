@@ -1,3 +1,14 @@
 <div class="rounded-xl shadow-xl bg-white mobile:max-tablet:p-4 tablet:p-6">
-    <sb-contact-form (closeForm)="close($event)"></sb-contact-form>
+  <div class="w-full flex items-center justify-between mb-1">
+    <h1 class="text-lg font-semibold leading-7 text-gray-900">
+      Contact Us
+    </h1>
+    <button
+      (click)="close(true)"
+      pButton
+      icon="pi pi-times"
+      class="p-button-sm p-button-text p-button-secondary p-button-rounded !h-10 !w-10"
+    ></button>
+  </div>
+  <sb-contact-form (closeForm)="close($event)"></sb-contact-form>
 </div>

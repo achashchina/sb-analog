@@ -1,17 +1,21 @@
 <header
   class="bg-white flex justify-between items-center h-20 text-lg px-10 py-5"
 >
-  <div class="logo flex items-center w-1/3 relative">
-    <img class="h-16 absolute" src="/images/pure-logo.svg" />
-    <div class="flex ml-7">
-      <a routerLink="">
-        <span class=" text-black">async-it</span>
-      <span class="text-accent font-semibold ml-2">| igniting innovations</span>
-      </a>
-      
-    </div>
+  <div class="logo flex items-center w-1/3 relative mobile:max-tablet:w-2/3">
+    <img class="h-16 absolute" routerLink="/" src="/images/pure-logo.svg" />
+    <a routerLink="/">
+     
+      <div class="flex ml-7">
+        <span class="text-black mobile:max-tablet:flex mobile:max-tablet:items-center">asyncIT</span>
+        <span class="text-accent font-semibold ml-2"
+          >| igniting innovations</span
+        >
+      </div>
+    </a>
   </div>
-  <div class="menu-items flex items-center justify-between w-1/3">
+  <div
+    class="menu-items flex items-center justify-between w-1/3 mobile:max-tablet:hidden"
+  >
     <span> <a routerLink="/" [routerLinkActive]="['is-active']">home</a></span>
     <!-- <span>about</span>
     <span>pricing</span> -->
@@ -21,6 +25,11 @@
     </span>
   </div>
   <div class="action flex justify-end w-1/3">
-    <button pButton label="Contact Us" class="p-button-accent w-52 text-white" (click)="scrollToForm()"></button>
+    <button
+      pButton
+      label="Contact Us"
+      class="p-button-accent w-52 text-white"
+      (click)="scrollToForm()"
+    ></button>
   </div>
 </header>
