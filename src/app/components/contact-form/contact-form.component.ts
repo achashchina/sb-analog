@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -9,6 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'sb-contact-form',
@@ -19,9 +20,13 @@ import { ButtonModule } from 'primeng/button';
   host: { ngSkipHydration: 'true' },
 })
 export class ContactFormComponent implements OnInit {
+  @Output() closeForm = new EventEmitter<boolean>();
   contactForm?: FormGroup;
 
-  constructor(private readonly httpClient: HttpClient) {}
+  constructor(
+    private readonly httpClient: HttpClient,
+    private readonly toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.contactForm = new FormGroup({
@@ -47,8 +52,15 @@ export class ContactFormComponent implements OnInit {
         this.contactForm.value
       )
       .subscribe((res) => {
+        this.closeForm.emit(true);
         if (res.statusCode === 200) {
           this.contactForm.reset();
+          this.toastr.success(
+            `We'll get back to you soon.`,
+            'Message received!'
+          );
+        } else {
+          this.toastr.error('Please try again.', 'Oops! Something went wrong');
         }
       });
   }

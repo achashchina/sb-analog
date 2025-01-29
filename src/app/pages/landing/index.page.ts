@@ -1,12 +1,11 @@
 import {
   Component,
   Inject,
-  InjectionToken,
   OnInit,
-  PLATFORM_ID,
   ViewEncapsulation,
+  forwardRef,
 } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { DialogService } from 'primeng/dynamicdialog';
 import { CanvasComponent } from '../../components/canvas/canvas.component';
@@ -33,7 +32,7 @@ export enum ChooseUs {
     CommonModule,
     CanvasComponent,
     ButtonModule,
-    CardComponent,
+    forwardRef(() => CardComponent),
     ContactFormComponent,
   ],
   templateUrl: './landing.component.html',
@@ -43,18 +42,15 @@ export enum ChooseUs {
 })
 export default class LandingComponent implements OnInit {
   industries?: Array<Industry>;
-  isBrowser = false;
   mode = ChooseUs;
   currentIndustry?: Industry;
   activePicture: number = 0;
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: InjectionToken<Object>,
+    @Inject('IS_BROWSER') public isBrowser: boolean,
     private readonly dialogService: DialogService,
     private readonly httpClient: HttpClient
-  ) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-  }
+  ) {}
 
   ngOnInit(): void {
     if (this.isBrowser) {
@@ -76,17 +72,6 @@ export default class LandingComponent implements OnInit {
     return this.httpClient.get<{ industries: Array<Industry> }>(
       '/data/data.json'
     );
-  }
-
-  open() {
-    this.dialogService
-      .open(ContactUsComponent, {
-        data: {
-          title: 'Are you sure you want to delete this transaction?',
-          body: 'If you delete this transaction, all data you already saved will be lost.',
-        },
-      })
-      .onClose.subscribe();
   }
 
   private addObserver() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { injectContentFiles } from '@analogjs/content';
 
@@ -9,14 +9,11 @@ import { DatePipe } from '@angular/common';
   selector: 'sb-blog',
   standalone: true,
   imports: [RouterLink, DatePipe],
-  templateUrl: './blog.component.html'
-
+  templateUrl: './blog.component.html',
 })
 export default class BlogComponent {
-  readonly posts = injectContentFiles<PostAttributes>((contentFile) =>
-    {
-      console.log(contentFile.filename);
-      return !contentFile.filename.includes('/src/content/blog/')
-    }
-  );
+  readonly posts = injectContentFiles<PostAttributes>(
+    (contentFile) => !contentFile.filename.includes('/src/content/blog/')
+  )
+
 }

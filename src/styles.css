@@ -2,6 +2,7 @@
 @import "./preflight.scss";
 @import url("~primeng/resources/themes/lara-light-purple/theme.css");
 @import url("~primeng/resources/primeng.min.css");
+@import 'ngx-toastr/toastr';
 
 @font-face {
   font-family: "KumbhSans";

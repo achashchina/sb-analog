@@ -1,12 +1,10 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   Component,
   HostListener,
   Inject,
-  InjectionToken,
   Input,
-  PLATFORM_ID,
 } from '@angular/core';
 
 interface Glitter {
@@ -26,7 +24,7 @@ interface Glitter {
   templateUrl: './canvas.component.html',
 })
 export class CanvasComponent implements AfterViewInit {
-  @Input({ required: true }) wrapper: any;
+  @Input({ required: true }) wrapper: HTMLDivElement;
   private canvas?: HTMLCanvasElement | null;
   private ctx?: CanvasRenderingContext2D;
   private mouseX: number = 0;
@@ -36,11 +34,7 @@ export class CanvasComponent implements AfterViewInit {
   private mouseStoppedTimeout?: ReturnType<typeof setTimeout>;
   private mouseStopDelay = 200;
 
-  isBrowser = false;
-
-  constructor(@Inject(PLATFORM_ID) private platformId: InjectionToken<Object>) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-  }
+  constructor(@Inject('IS_BROWSER') public isBrowser: boolean) {}
 
   @HostListener('mousemove', ['$event'])
   mousemove(e: MouseEvent) {
@@ -73,16 +67,13 @@ export class CanvasComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     if (this.isBrowser) {
-      this.canvas = this.isBrowser
-        ? (document.querySelector('canvas') as HTMLCanvasElement)
-        : null;
-      if (this.canvas) {
-        setTimeout(() => {
-          this.initializeCanvas();
-          this.initializeGlitters();
-          this.animate();
-        }, 0);
-      }
+      this.canvas = document.querySelector('canvas') as HTMLCanvasElement;
+
+      setTimeout(() => {
+        this.initializeCanvas();
+        this.initializeGlitters();
+        this.animate();
+      }, 0);
     }
   }
 
@@ -93,7 +84,7 @@ export class CanvasComponent implements AfterViewInit {
 
     for (const glitter of this.glitters) {
       const condition = currentTime - glitter.lastInteractionTime < 2000;
-      glitter.opacity = condition? glitter.opacity: 0;
+      glitter.opacity = condition ? glitter.opacity : 0;
 
       if (condition) {
         glitter.x += glitter.vx;
