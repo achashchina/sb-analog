@@ -12,7 +12,7 @@ import { CanvasComponent } from '../../components/canvas/canvas.component';
 import { CardComponent } from '../../components/card/card.component';
 import { ContactFormComponent } from '../../components/contact-form/contact-form.component';
 import { HttpClient } from '@angular/common/http';
-import { ContactUsComponent } from '../../components/modals/contact-us/contact-us.component';
+import { TypewriterComponent } from './typewriter/typewriter.component';
 
 interface Industry {
   img: string;
@@ -34,6 +34,7 @@ export enum ChooseUs {
     ButtonModule,
     forwardRef(() => CardComponent),
     ContactFormComponent,
+    TypewriterComponent
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
@@ -48,7 +49,6 @@ export default class LandingComponent implements OnInit {
 
   constructor(
     @Inject('IS_BROWSER') public isBrowser: boolean,
-    private readonly dialogService: DialogService,
     private readonly httpClient: HttpClient
   ) {}
 
