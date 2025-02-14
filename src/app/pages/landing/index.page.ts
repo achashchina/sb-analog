@@ -13,6 +13,7 @@ import { CardComponent } from '../../components/card/card.component';
 import { ContactFormComponent } from '../../components/contact-form/contact-form.component';
 import { HttpClient } from '@angular/common/http';
 import { TypewriterComponent } from './typewriter/typewriter.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 interface Industry {
   img: string;
@@ -34,7 +35,8 @@ export enum ChooseUs {
     ButtonModule,
     forwardRef(() => CardComponent),
     ContactFormComponent,
-    TypewriterComponent
+    TypewriterComponent,
+    TranslateModule
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
@@ -46,6 +48,7 @@ export default class LandingComponent implements OnInit {
   mode = ChooseUs;
   currentIndustry?: Industry;
   activePicture: number = 0;
+  today = new Date()
 
   constructor(
     @Inject('IS_BROWSER') public isBrowser: boolean,
