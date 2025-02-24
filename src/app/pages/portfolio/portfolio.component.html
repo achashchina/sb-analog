@@ -2,29 +2,32 @@
   <div class="container flex-col pt-20 px-10">
     <h1 class="text-4xl text-body text-left my-8">Our Portfolio</h1>
     <div class="flex-col">
-      <a *ngFor="let project of projects" [href]="project.link" class="portfolio-post p-12 mb-10 bg-white shadow-xl transition-all duration-300 ease-in-out flex gap-8 hover:shadow-2xl items-center">
+      <div
+        *ngFor="let project of projects"
+        class="to-animate p-12 mb-10 bg-white shadow-xl transition-all duration-300 ease-in-out flex gap-8 hover:shadow-2xl items-center"
+      >
         <figure class="w-1/2">
-          <img [src]="project.image" class="object-cover object-center h-[300px]" alt="" decoding="async">
+          <img [src]="'/images/portfolio/' + project.img" class="object-cover object-center h-[300px]" alt="" />
         </figure>
         <div class="info w-1/2">
-          <h2 class="font-extrabold text-2xl leading-[58px] tracking-[0.2px] text-[#141414] pb-2">{{ project.title }}</h2>
+          <h2 class="font-extrabold text-2xl tracking-wide text-gray-700 pb-2">{{ project.name }}</h2>
           <p>{{ project.description }}</p>
           <div class="preview_block_items">
             <div class="preview_block_item">
-              <span>Tech stack:</span>
+              <span class="font-bold">Tech stack:</span>
               <p>
                 <ng-container *ngFor="let tech of project.techStack">
-                  <strong class="mr-1 inline-block px-1.5 py-0.5 border border-[#bdbdbd] font-medium text-[#141414]">{{ tech }}</strong>
+                  <strong class="mr-2 mb-2 inline-block px-2 py-1 rounded-3xl bg-sky-500 font-medium text-white hover:cursor-pointer hover:shadow-lg transition-all duration-300">{{ tech }}</strong>
                 </ng-container>
               </p>
             </div>
             <div class="preview_block_item" *ngIf="project.industry">
-              <span>Industry:</span>
+              <span class="font-bold">Industry:</span>
               <p>{{ project.industry }}</p>
             </div>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 </div>

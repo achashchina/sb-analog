@@ -1,0 +1,32 @@
+{
+  "projects": [
+    {
+      "img": "healthcare-project.png",
+      "name": "Angular SaaS Healthcare Project",
+      "description": "A SaaS Healthcare Project utilizing the Angular framework for the frontend. Designed for scalability and efficiency, ensuring secure and responsive performance for healthcare services.",
+      "techStack": ["Angular", "HTML5", "CSS3", "Web Development"],
+      "industry": "Healthcare"
+    },
+    {
+      "img": "math_courses.png",
+      "name": "LMS for Math Courses",
+      "description": "An LMS built with Angular, focusing on optimizing RxJS streams for better performance. The platform offers a seamless learning experience with Firebase integration.",
+      "techStack": ["Angular", "RxJs", "Web Application Development", "Web Development", "Firebase"],
+      "industry": "Education"
+    },
+    {
+      "img": "oAuth-app.png",
+      "name": "Angular Application with OAuth",
+      "description": "A dashboard application built with Angular, featuring OAuth authentication, MongoDB, and Express.js for secure and efficient data management.",
+      "techStack": ["Angular", "Express", "MongoDB", "Front-End Development", "Web API"],
+      "industry": "Fintech"
+    },
+    {
+      "img": "vispo_project.png",
+      "name": "Application for Vispo",
+      "description": "A collaboration platform for investors and founders, developed using the MEAN stack with Angular and RxJS. Ensures smooth interactions with a responsive UI powered by Tailwind CSS.",
+      "techStack": ["MEAN Stack", "Angular", "RxJs", "Tailwind CSS", "JavaScript"],
+      "industry": "Business & Investment"
+    }
+  ]
+}
