@@ -1,0 +1,33 @@
+<div class="bg-gray-100 min-h-screen">
+  <div class="container flex-col pt-20 px-10">
+    <h1 class="text-4xl text-body text-left my-8">Our Portfolio</h1>
+    <div class="flex-col">
+      <div
+        *ngFor="let project of projects"
+        class="to-animate p-12 mb-10 bg-white shadow-xl transition-all duration-300 ease-in-out flex gap-8 hover:shadow-2xl items-center"
+      >
+        <figure class="w-1/2">
+          <img [src]="'/images/portfolio/' + project.img" class="object-cover object-center h-[300px]" alt="" />
+        </figure>
+        <div class="info w-1/2">
+          <h2 class="font-extrabold text-2xl tracking-wide text-gray-700 pb-2">{{ project.name }}</h2>
+          <p>{{ project.description }}</p>
+          <div class="preview_block_items">
+            <div class="preview_block_item">
+              <span class="font-bold">Tech stack:</span>
+              <p>
+                <ng-container *ngFor="let tech of project.techStack">
+                  <strong class="mr-2 mb-2 inline-block px-2 py-1 rounded-3xl bg-sky-500 font-medium text-white hover:cursor-pointer hover:shadow-lg transition-all duration-300">{{ tech }}</strong>
+                </ng-container>
+              </p>
+            </div>
+            <div class="preview_block_item" *ngIf="project.industry">
+              <span class="font-bold">Industry:</span>
+              <p>{{ project.industry }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
