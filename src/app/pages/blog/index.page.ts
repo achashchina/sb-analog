@@ -6,7 +6,7 @@ import PostAttributes from '../../post-attributes';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'sb-blog',
+  selector: 'async-blog',
   standalone: true,
   imports: [RouterLink, DatePipe],
   templateUrl: './blog.component.html',

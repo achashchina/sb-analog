@@ -27,7 +27,7 @@ export enum ChooseUs {
 }
 
 @Component({
-  selector: 'sb-landing',
+  selector: 'async-landing',
   standalone: true,
   imports: [
     CommonModule,

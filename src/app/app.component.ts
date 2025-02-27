@@ -5,11 +5,11 @@ import { TranslateModule } from '@ngx-translate/core'; // <--- standalone only
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'sb-root',
+  selector: 'async-root',
   standalone: true,
   imports: [RouterOutlet, TopMenuComponent, TranslateModule],
   template: `
-    <sb-top-menu></sb-top-menu>
+    <async-top-menu></async-top-menu>
     <router-outlet />
   `,
   styles: `
@@ -29,13 +29,10 @@ export class AppComponent {
     @Inject(LOCALE_ID) public localeId: string,
     private translate: TranslateService
   ) {
-    console.log(localeId);
-    this.translate.addLangs(['de', 'en']);
-    this.translate.setDefaultLang('en');
-    this.translate.use(localeId);
-
-    // this.translate.getBrowserLang()
-    
-    console.log(translate.instant('test.title'));
+    // console.log(localeId);
+    // this.translate.addLangs(['de', 'en']);
+    // this.translate.setDefaultLang('en');
+    // this.translate.use(localeId);
+    // console.log(translate.instant('test.title'));
   }
 }

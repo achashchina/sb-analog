@@ -5,7 +5,7 @@ import { injectContent, MarkdownComponent } from '@analogjs/content';
 import PostAttributes from '../../post-attributes';
 
 @Component({
-  selector: 'sb-blog-post',
+  selector: 'async-blog-post',
   standalone: true,
   imports: [AsyncPipe, MarkdownComponent],
   templateUrl: './blog-post.component.html',

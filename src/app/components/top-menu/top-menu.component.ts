@@ -7,7 +7,7 @@ import { ContactFormComponent } from '../contact-form/contact-form.component';
 import { ContactUsComponent } from '../modals/contact-us/contact-us.component';
 
 @Component({
-  selector: 'sb-top-menu',
+  selector: 'async-top-menu',
   templateUrl: './top-menu.component.html',
   standalone: true,
   imports: [CommonModule, ButtonModule, RouterLink, RouterLinkActive],

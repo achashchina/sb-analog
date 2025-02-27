@@ -6,7 +6,7 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ContactFormComponent } from '../../contact-form/contact-form.component';
 
 @Component({
-  selector: 'sb-contact-us',
+  selector: 'async-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.scss',
   standalone: true,

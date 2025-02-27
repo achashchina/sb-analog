@@ -12,7 +12,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'sb-contact-form',
+  selector: 'async-contact-form',
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss',
   standalone: true,

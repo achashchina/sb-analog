@@ -3,7 +3,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 
 
 @Component({
-  selector: 'sb-typewriter',
+  selector: 'async-typewriter',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './typewriter.component.html',
