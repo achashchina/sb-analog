@@ -11,7 +11,6 @@ const connectMongo = async () => {
     family: 4 // Use IPv4, skip trying IPv6
   };
   try {
-    console.log(process.env.MONGODB_URI)
     const { connection } = await mongoose.connect(process.env.MONGODB_URI, options);
 
     connection.readyState == 1 ? Promise.resolve(true) : null;
