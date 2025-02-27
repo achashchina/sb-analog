@@ -18,7 +18,7 @@ interface Glitter {
 }
 
 @Component({
-  selector: 'sb-canvas',
+  selector: 'async-canvas',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './canvas.component.html',

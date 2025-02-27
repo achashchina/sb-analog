@@ -1,7 +1,7 @@
 <div class="scroll-watcher"></div>
 <div class="flex bg-body flex-col pt-20">
   <div #wrapper class="wrapper relative w-full pt-14">
-    <sb-canvas [wrapper]="wrapper"></sb-canvas>
+    <async-canvas [wrapper]="wrapper"></async-canvas>
     <div class="hero-section relative container to-animate">
       <div class="w-full lg:w-1/2 relative">
         <h1 class="text-5xl text-gradient text-animation w-full text-left">
@@ -33,7 +33,7 @@
   <!-- <div class="flex">
     <div class="w-1/4 text-white">Technologies</div>
     <div class="w-3/4">
-      <sb-carousel></sb-carousel>
+      <async-carousel></async-carousel>
     </div>
   </div> -->
 
@@ -41,27 +41,27 @@
     <div
       class="to-animate flex mobile:max-tablet:flex-col mobile:max-tablet:items-center justify-between px-6 w-full"
     >
-      <sb-card
+      <async-card
         [settings]="{
           icon: 'images/colab.svg',
           header: 'Technical Support',
           body: 'We provide 24/7 access to highly skilled technical support engineers, ensuring exceptional expertise and reliable top-tier performance.'
         }"
-      ></sb-card>
-      <sb-card
+      ></async-card>
+      <async-card
         [settings]="{
           icon: 'images/lock.svg',
           header: 'Web Application Development',
           body: 'We build exceptional web applications with a focus on practical solutions, elegant and intelligent design, clean code, and solid architecture.'
         }"
-      ></sb-card>
-      <sb-card
+      ></async-card>
+      <async-card
         [settings]="{
           icon: 'images/chart.svg',
           header: 'IT Strategy & Consulting',
           body: ' Our IT consulting services empower you to prioritize your core needs while aligning software technology and financial goals with your operational objectives.'
         }"
-      ></sb-card>
+      ></async-card>
     </div>
   </div>
 </div>
@@ -150,7 +150,7 @@
     <div
       class="to-animate flex mobile:max-tablet:flex-col mobile:max-tablet:items-center justify-center gap-6 pt-14 text-white"
     >
-      <sb-card
+      <async-card
         [mode]="mode.YES"
         [settings]="{
           header: 'Expert Team',
@@ -161,8 +161,8 @@
             '50+ Projects Delivered Individually'
           ]
         }"
-      ></sb-card>
-      <sb-card
+      ></async-card>
+      <async-card
         [mode]="mode.YES"
         [settings]="{
           header: 'Fresh Approach',
@@ -173,8 +173,8 @@
             'Agile and Adaptable'
           ]
         }"
-      ></sb-card>
-      <sb-card
+      ></async-card>
+      <async-card
         [mode]="mode.YES"
         [settings]="{
           header: 'Passion for Excellence',
@@ -185,7 +185,7 @@
             'Special Introductory Pricing'
           ]
         }"
-      ></sb-card>
+      ></async-card>
     </div>
     <div class="blur-circle blue"></div>
     <div class="blur-circle green"></div>
@@ -199,7 +199,7 @@
   <div class="w-full flex  mobile:max-tablet:w-full mobile:max-tablet:flex-col">
     <h2 class="flex w-1/3 my-4 text-body font-bold text-2xl px-6 mobile:max-tablet:w-full">Contact us and we’ll get back to you shortly!</h2>
     <div class="w-2/3 shadow-2xl mobile:max-tablet:w-full">
-      <sb-contact-form></sb-contact-form>
+      <async-contact-form></async-contact-form>
     </div>
   </div>
 </div>
@@ -210,7 +210,7 @@
   >
     <span class="pr-6 mobile:max-tablet:pr-0 mobile:max-tablet:text-center"
       >We make your tech process</span
-    ><sb-typewriter></sb-typewriter>
+    ><async-typewriter></async-typewriter>
   </h2>
 </div>
 

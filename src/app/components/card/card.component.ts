@@ -5,7 +5,7 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { ChooseUs } from '../../pages/landing/index.page';
 
 @Component({
-  selector: 'sb-card',
+  selector: 'async-card',
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
   standalone: true,
