@@ -3,7 +3,7 @@
 >
   <div class="list w-full mt-6">
     @if (posts$ | async; as posts) { @for (post of posts; track post._id) {
-    <div class="flex justify-center shadow-xl" [innerHTML]="post.iframe"></div>
+    <div class="flex justify-center shadow-xl pb-6" [innerHTML]="post.iframe"></div>
     <hr class="my-6" />
     } }
   </div>
