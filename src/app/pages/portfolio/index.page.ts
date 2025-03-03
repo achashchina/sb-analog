@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import {isPlatformBrowser, NgForOf, NgIf} from "@angular/common";
-import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import { Component } from '@angular/core';
+import {AsyncPipe, CommonModule, NgForOf, NgIf} from '@angular/common';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 interface Project {
   img: string;
@@ -12,62 +12,19 @@ interface Project {
 }
 
 @Component({
-  selector: 'sb-portfolio',
+  selector: 'async-portfolio',
   standalone: true,
   templateUrl: './portfolio.component.html',
-  imports: [
-    NgForOf,
-    NgIf
-  ]
+  imports: [CommonModule, NgForOf, NgIf, AsyncPipe]
 })
-export default class PortfolioPage implements OnInit {
-  projects?: Project[];
-  isBrowser: boolean;
+export default class PortfolioPage {
+  projects$: Observable<{ projects: Project[] }>;
 
-  constructor(private httpClient: HttpClient, @Inject(PLATFORM_ID) private platformId: any) {
-    this.isBrowser = isPlatformBrowser(platformId);
-  }
-
-  ngOnInit(): void {
-    if (this.isBrowser) {
-      this.fetchProjects().subscribe(({ projects }) => {
-        this.projects = projects;
-        setTimeout(() => this.observeProjects(), 500);
-      });
-    }
+  constructor(private httpClient: HttpClient) {
+    this.projects$ = this.fetchProjects();
   }
 
   fetchProjects(): Observable<{ projects: Project[] }> {
     return this.httpClient.get<{ projects: Project[] }>('/data/projects.json');
-  }
-
-  private observeProjects() {
-    if (!this.isBrowser || typeof IntersectionObserver === 'undefined') {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            entry.target.classList.remove('not-in-view');
-          } else {
-            entry.target.classList.remove('in-view');
-            entry.target.classList.add('not-in-view');
-          }
-        });
-      },
-      {
-        rootMargin: '0px',
-        threshold: 0.2,
-      }
-    );
-
-    setTimeout(() => {
-      const tags = document.querySelectorAll('.to-animate');
-      tags.forEach((tag) => observer.observe(tag));
-    }, 100);
-
   }
 }
