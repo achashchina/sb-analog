@@ -1,0 +1,30 @@
+import { Component, ViewEncapsulation, inject } from '@angular/core';
+import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { map, switchMap } from 'rxjs';
+import { PortfolioService } from './portfolio.service';
+
+@Component({
+  selector: 'async-portfolio-details',
+  standalone: true,
+  imports: [AsyncPipe, CommonModule],
+  templateUrl: 'portfolio-details.component.html',
+  styleUrl: 'portfolio.component.scss',
+  encapsulation: ViewEncapsulation.None,
+})
+export default class BlogPostComponent {
+  private readonly route = inject(ActivatedRoute);
+  private readonly portfolioService = inject(PortfolioService);
+
+  readonly project$ = this.portfolioService
+    .get$()
+    .pipe(
+      switchMap((list) =>
+        this.route.paramMap.pipe(
+          map((params) =>
+            list.projects.find((x) => x.slug === params.get('slug'))
+          )
+        )
+      )
+    );
+}

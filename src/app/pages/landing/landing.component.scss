@@ -212,12 +212,6 @@ h1 {
   font-size: 72px;
 }
 
-.text-gradient {
-  background: linear-gradient(150deg, #45a0f5 30%, #26e3c2 70%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .technologies-h2 {
   font-size: clamp(26px, 3.44vw, 44px);
   font-weight: 500;

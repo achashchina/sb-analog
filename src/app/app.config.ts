@@ -21,6 +21,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { SettingsService } from './services/settings.service';
+import { withComponentInputBinding } from '@angular/router';
 
 const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (
   http: HttpClient
@@ -29,7 +30,7 @@ const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideFileRouter(),
+    provideFileRouter(withComponentInputBinding()),
     provideHttpClient(
       withFetch(),
       withInterceptors([requestContextInterceptor])

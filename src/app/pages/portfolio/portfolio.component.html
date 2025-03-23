@@ -1,24 +1,61 @@
 <div class="min-h-screen">
   <div class="container flex-col pt-20 px-10">
-    <h1 class="text-7xl text-body font-medium text-center my-12 text-zinc-900">Our Portfolio</h1>
+    <h1 class="text-7xl font-medium text-center my-12 text-gradient">
+      Our Portfolio
+    </h1>
     <div class="flex-col">
-      <div *ngIf="(projects$ | async) as data">
-        <div *ngFor="let project of data.projects; let i = index" class="flex gap-8 mb-[100px]">
-          <figure class="w-1/2" [ngClass]="{'order-2': i % 2 === 0, 'order-1': i % 2 !== 0}">
-            <img [src]="'/images/portfolio/' + project.img" class="object-cover object-center h-[300px]" alt="" />
+      <div *ngIf="projects$ | async as data">
+        <div
+          *ngFor="let project of data.projects; let i = index"
+          class="flex gap-8 mb-[100px]"
+        >
+          <figure
+            class="w-1/2"
+            [ngClass]="{ 'order-2': i % 2 === 0, 'order-1': i % 2 !== 0 }"
+          >
+            <img
+              [src]="'/images/portfolio/' + project.img"
+              class="object-cover object-center h-[300px]"
+              alt=""
+            />
           </figure>
-          <div class="info w-1/2" [ngClass]="{'order-1': i % 2 === 0, 'order-2': i % 2 !== 0}">
+          <div
+            class="info w-1/2"
+            [ngClass]="{ 'order-1': i % 2 === 0, 'order-2': i % 2 !== 0 }"
+          >
             <div class="preview_block_items">
               <div class="preview_block_item">
                 <p>
                   <ng-container *ngFor="let tech of project.techStack">
-                    <strong class="mr-2 mb-2 inline-block px-2 py-1 rounded-3xl border-2 border-gray-200 font-medium hover:cursor-pointer hover:shadow-lg transition-all duration-300">{{ tech }}</strong>
+                    <strong
+                      class="mr-2 mb-2 inline-block px-2 py-1 rounded-3xl border-2 border-gray-200 font-medium hover:cursor-pointer hover:shadow-lg transition-all duration-300"
+                      >{{ tech }}</strong
+                    >
                   </ng-container>
                 </p>
               </div>
             </div>
-            <h2 class="font-extrabold text-2xl tracking-wide text-gray-700 pb-2">{{ project.name }}</h2>
-            <p>{{ project.description }}</p>
+            <h2
+              [routerLink]="['/portfolio', project.slug]"
+              class="font-extrabold text-2xl tracking-wide text-gray-700 pb-2 cursor-pointer"
+            >
+              {{ project.name }}
+            </h2>
+            <p class="pb-5">{{ project.description }}</p>
+            @if (project.challenges) {
+            <a
+              [routerLink]="['/portfolio', project.slug]"
+              class="text-blue-gradient"
+              >Keep reading...</a
+            >
+            } @else {
+            <button
+              pButton
+              label="Contact Us"
+              class="p-button-accent w-52 text-white"
+              (click)="openModal()"
+            ></button>
+            }
           </div>
         </div>
       </div>

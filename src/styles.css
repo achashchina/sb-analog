@@ -70,3 +70,9 @@ body {
     box-shadow: 0 0 0 0.2rem #e6e8fe;
   }
 }
+
+.text-gradient {
+  background: linear-gradient(150deg, #45a0f5 30%, #26e3c2 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

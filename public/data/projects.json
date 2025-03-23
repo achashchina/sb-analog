@@ -1,43 +1,82 @@
 {
   "projects": [
     {
+      "img": "minebier.png",
+      "name": "Minebier.dk: Smart Beehive Monitoring for Beekeepers",
+      "slug": "beekeepers-monitor",
+      "description": "Challenges\nMinebier.dk is designed to help beekeepers monitor honey levels in their beehives with real-time tracking. The goal was to provide an intuitive and data-driven platform that enables users to track beehive weight, temperature, and overall hive conditions.",
+      "techStack": ["Angular", "TypeScript", "RxJS", "Unit Testing"],
+      "industry": "\uD83D\uDC1D Beekeeping, IoT, Agriculture",
+      "challenges": [
+        "Real-Time Data: Ensuring continuous, live updates of hive conditions to support immediate decision-making.",
+        "Scalability and Reliability: Developing a system that can handle a high volume of data streams without sacrificing performance.",
+        "User Experience: Creating an intuitive and user-friendly interface that enables quick access to vital information.",
+        "Modularity: Building the system using modern technologies to allow for easy future upgrades.",
+        "Instant Data Updates: Implementing a mechanism for real-time data push using WebSocket technology to minimize latency."
+      ],
+      "solutions": [
+        "Modern Technology Stack: Leveraging Angular (starting from Angular 8 and upgrading to the latest version), TypeScript, RxJS, and Karma provided the foundation for a modern, scalable application.",
+        "Component-Based Architecture: Utilizing Angular’s component-based approach ensured modularity and maintainability, allowing for seamless future enhancements.",
+        "Efficient Data Streaming: Integrating RxJS for managing data streams enabled smooth real-time updates of hive conditions.",
+        "WebSocket Integration: To achieve instant data updates, a WebSocket solution was incorporated, ensuring that users receive immediate notifications as soon as data changes occur.",
+        "Performance Optimization: Advanced web performance optimization techniques were applied to reduce load times and enhance the overall user experience."
+      ]
+    },
+    {
+      "img": "vispo_project.png",
+      "name": "Application for Vispo",
+      "slug": "vispo-collaboration-platform",
+      "description": "A collaboration platform for investors and founders, developed using the MEAN stack with Angular and RxJS. Ensures smooth interactions with a responsive UI powered by Tailwind CSS.",
+      "techStack": [
+        "MEAN Stack",
+        "Angular",
+        "RxJs",
+        "Tailwind CSS",
+        "JavaScript"
+      ],
+      "industry": "Business & Investment"
+    },
+    {
+      "img": "math_courses.png",
+      "name": "LMS for Math Courses",
+      "slug": "math-courses-lms",
+      "description": "An LMS built with Angular, focusing on optimizing RxJS streams for better performance. The platform offers a seamless learning experience with Firebase integration.",
+      "techStack": [
+        "Angular",
+        "RxJs",
+        "Web Application Development",
+        "Web Development",
+        "Firebase"
+      ],
+      "industry": "Education"
+    },
+    {
       "img": "healthcare-project.png",
       "name": "Angular SaaS Healthcare Project",
+      "slug": "angular-saas-healthcare-project",
       "description": "A SaaS Healthcare Project utilizing the Angular framework for the frontend. Designed for scalability and efficiency, ensuring secure and responsive performance for healthcare services.",
       "techStack": ["Angular", "HTML5", "CSS3", "Web Development"],
       "industry": "Healthcare"
     },
     {
-      "img": "minebier.png",
-      "name": "Minebier.dk: Smart Beehive Monitoring for Beekeepers",
-      "description": "Challenges\nMinebier.dk is designed to help beekeepers monitor honey levels in their beehives with real-time tracking. The goal was to provide an intuitive and data-driven platform that enables users to track beehive weight, temperature, and overall hive conditions.",
-      "techStack": ["Angular 8 (upgraded to the latest versions)", "TypeScript", "RxJS", "Unit Testing"],
-      "industry": "\uD83D\uDC1D Beekeeping, IoT, Agriculture"
-    },
-    {
-      "img": "math_courses.png",
-      "name": "LMS for Math Courses",
-      "description": "An LMS built with Angular, focusing on optimizing RxJS streams for better performance. The platform offers a seamless learning experience with Firebase integration.",
-      "techStack": ["Angular", "RxJs", "Web Application Development", "Web Development", "Firebase"],
-      "industry": "Education"
-    },
-    {
       "img": "oAuth-app.png",
       "name": "Angular Application with OAuth",
+      "slug": "angular-oauth",
       "description": "A dashboard application built with Angular, featuring OAuth authentication, MongoDB, and Express.js for secure and efficient data management.",
-      "techStack": ["Angular", "Express", "MongoDB", "Front-End Development", "Web API"],
+      "techStack": [
+        "Angular",
+        "Express",
+        "MongoDB",
+        "Front-End Development",
+        "Web API"
+      ],
       "industry": "Fintech"
     },
-    {
-      "img": "vispo_project.png",
-      "name": "Application for Vispo",
-      "description": "A collaboration platform for investors and founders, developed using the MEAN stack with Angular and RxJS. Ensures smooth interactions with a responsive UI powered by Tailwind CSS.",
-      "techStack": ["MEAN Stack", "Angular", "RxJs", "Tailwind CSS", "JavaScript"],
-      "industry": "Business & Investment"
-    },
+
     {
       "img": "other.png",
       "name": "Application for Advertising & Retail Media",
+      "slug": "advertising-retail-media",
       "description": "Built with Angular, TypeScript, and RxJS, this advertising platform integrates sponsored offers, display ads, and native promotions into e-commerce stores.",
       "techStack": ["Angular", "RxJs", "TypeScript", "Cypress", "Front-end"],
       "industry": "Business & Investment"

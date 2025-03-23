@@ -1,30 +1,43 @@
-import { Component } from '@angular/core';
-import {AsyncPipe, CommonModule, NgForOf, NgIf} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { AsyncPipe, CommonModule, NgForOf, NgIf } from '@angular/common';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-
-interface Project {
-  img: string;
-  name: string;
-  description: string;
-  techStack: string[];
-  industry: string;
-}
+import { RouterLink } from '@angular/router';
+import { Project } from './project.interface';
+import { PortfolioService } from './portfolio.service';
+import { ButtonModule } from 'primeng/button';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ContactUsComponent } from '../../components/modals/contact-us/contact-us.component';
 
 @Component({
   selector: 'async-portfolio',
   standalone: true,
   templateUrl: './portfolio.component.html',
-  imports: [CommonModule, NgForOf, NgIf, AsyncPipe]
+  imports: [CommonModule, ButtonModule, NgForOf, NgIf, AsyncPipe, RouterLink],
+  providers: [DialogService],
 })
-export default class PortfolioPage {
+export default class PortfolioPage implements OnInit {
   projects$: Observable<{ projects: Project[] }>;
+  constructor(
+    private portfolioService: PortfolioService,
+    private readonly dialogService: DialogService
+  ) {}
 
-  constructor(private httpClient: HttpClient) {
-    this.projects$ = this.fetchProjects();
+  ngOnInit(): void {
+    this.projects$ = this.portfolioService.get$();
   }
 
-  fetchProjects(): Observable<{ projects: Project[] }> {
-    return this.httpClient.get<{ projects: Project[] }>('/data/projects.json');
+  openModal() {
+    this.dialogService.open(ContactUsComponent, {
+      data: {
+        title: '',
+        body: '',
+      },
+      width: '50vw',
+      modal: true,
+      breakpoints: {
+        '960px': '75vw',
+        '640px': '90vw',
+      },
+    });
   }
 }

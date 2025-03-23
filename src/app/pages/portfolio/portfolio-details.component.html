@@ -1,0 +1,68 @@
+<section class="container flex-col project-details pt-24 px-10">
+  @if (project$ | async; as project) {
+  <div class="flex gap-8 mb-[100px]">
+    <figure class="w-1/2">
+      <img
+        [src]="'/images/portfolio/' + project.img"
+        class="object-cover object-center h-[300px]"
+        alt=""
+      />
+    </figure>
+    <div class="info w-1/2">
+      <h1
+        class="font-extrabold text-2xl tracking-wide text-gradient pb-2 cursor-pointer"
+      >
+        {{ project.name }}
+      </h1>
+      <p class="pb-4">{{ project.description }}</p>
+      <p class="pb-4">
+        Technologies:
+        <ng-container *ngFor="let tech of project.techStack"
+          ><span class="pr-2">{{ tech }},</span></ng-container
+        >
+      </p>
+    </div>
+  </div>
+  <div>
+    <div class="flex w-full gap-8 mb-4">
+      <div class="flex flex-col w-1/2 p-4 border border-gray-200 rounded-xl">
+        <h2
+          class="font-extrabold text-2xl tracking-wide text-blue-gradient pb-2"
+        >
+          Challenges:
+        </h2>
+        <ol class="list-disc mb-4" style="padding: revert">
+          @for (item of project.challenges; track $index) {
+          <li>{{ item }}</li>
+          }
+        </ol>
+      </div>
+      <div class="flex flex-col w-1/2 p-4 border border-gray-200 rounded-xl">
+        <h2
+          class="font-extrabold text-2xl tracking-wide text-blue-gradient pb-2"
+        >
+          Solutions:
+        </h2>
+        <ol class="list-disc mb-4" style="padding: revert">
+          @for (item of project.solutions; track $index) {
+          <li>{{ item }}</li>
+          }
+        </ol>
+      </div>
+    </div>
+
+    <h2 class="font-extrabold text-2xl tracking-wide text-blue-gradient pb-2">
+      What out client says
+    </h2>
+    <p class="testimonials relative pl-5 mb-10">
+      "The development of Minebier.dk was a turning point for our business. The
+      combination of modern technologies and an intuitive interface allows us to
+      monitor our hives in real-time. The use of WebSocket for instant updates
+      was particularly impressive, ensuring we are always informed of the latest
+      conditions. This collaboration not only delivered a high-quality product
+      but also significantly increased our customer confidence." -
+      Representative, Minebier.dk
+    </p>
+  </div>
+  }
+</section>
