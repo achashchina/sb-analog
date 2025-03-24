@@ -1,39 +1,20 @@
 import { Component } from '@angular/core';
-import { AsyncPipe } from '@angular/common';
-import PostsApiResponse from 'src/app/interfaces/posts-api-response';
-import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { injectContentFiles } from '@analogjs/content';
 
 @Component({
   selector: 'async-blog',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [CommonModule, RouterLink],
   templateUrl: './blog.component.html',
+  styles: `
+  :host {
+    min-height: 100vh;
+    display: block;
+    background: #f6f6f6;
+  }`,
 })
 export default class BlogComponent {
-  posts$: Observable<any[]>;
-
-  constructor(
-    private httpClient: HttpClient,
-    private sanitizer: DomSanitizer
-  ) {}
-
-  ngOnInit(): void {
-    this.posts$ = this.getPosts();
-  }
-
-  getPosts() {
-    return this.httpClient.get<PostsApiResponse>('/api/v1/linkedin-posts').pipe(
-      map((res) =>
-        'error' in res.body
-          ? []
-          : res.body.response.map((x) => ({
-              ...x,
-              iframe: this.sanitizer.bypassSecurityTrustHtml(x.iframe),
-              // iframe: this.sanitizer.bypassSecurityTrustHtml(x.iframe.replace(/width="\d+"/, 'width="700"')),
-            }))
-      )
-    );
-  }
+  posts = injectContentFiles<any>();
 }

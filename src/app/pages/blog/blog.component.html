@@ -1,10 +1,43 @@
 <div
   class="articles-wrapper pt-20 desktop:max-w-[50%] tablet:max-w-[70%] mobile:max-desktop:max-w-[90%] m-auto"
 >
-  <div class="list w-full mt-6">
-    @if (posts$ | async; as posts) { @for (post of posts; track post._id) {
-    <div class="flex justify-center shadow-xl pb-6" [innerHTML]="post.iframe"></div>
-    <hr class="my-6" />
-    } }
+  <h1 class="text-7xl leading-snug font-medium text-center text-gradient">Our Blog</h1>
+  @for (post of posts; track $index) {
+  <div class="flex gap-8 bg-white rounded-lg mb-3 p-5">
+    <div class="w-4/5">
+      <a [routerLink]="['/blog', post.slug]">
+        <h2 class="text-2xl font-bold">
+          {{ post.attributes.title }}
+        </h2>
+        <h3 class="font-normal text-base text-neutral-600">
+          {{ post.attributes.description }}
+        </h3>
+      </a>
+    </div>
+    <div class="w-1/5">
+      <img class="post__image" [src]="post.attributes.coverImage" />
+    </div>
   </div>
+  }
 </div>
+
+<footer class="min-h-16 bg-white rounded-lg shadow-sm dark:bg-gray-800 border-t border-gray-300 ">
+  <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">asyncIT</a>. All Rights Reserved.
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+      <li>
+        <a href="#" class="hover:underline me-4 md:me-6">Home</a>
+      </li>
+      <li>
+        <a href="#contact-form" class="hover:underline me-4 md:me-6">Contacts</a>
+      </li>
+      <li>
+        <a href="/blog" class="hover:underline me-4 md:me-6">Blog</a>
+      </li>
+      <li>
+        <a href="/portfolio" class="hover:underline me-4 md:me-6">Portfolio</a>
+      </li>
+    </ul>
+  </div>
+</footer>

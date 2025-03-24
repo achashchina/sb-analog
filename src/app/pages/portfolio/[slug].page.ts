@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, inject } from '@angular/core';
-import { AsyncPipe, CommonModule, JsonPipe } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs';
 import { PortfolioService } from './portfolio.service';
@@ -13,7 +13,7 @@ import { ContactFormComponent } from '../../components/contact-form/contact-form
   styleUrl: 'portfolio.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export default class BlogPostComponent {
+export default class PortfolioDetailsComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly portfolioService = inject(PortfolioService);
 

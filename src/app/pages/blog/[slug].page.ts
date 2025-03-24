@@ -13,5 +13,5 @@ import PostAttributes from '../../post-attributes';
   encapsulation: ViewEncapsulation.None,
 })
 export default class BlogPostComponent {
-  readonly post$ = injectContent<PostAttributes>('slug');
+  readonly post$ = injectContent<PostAttributes>();
 }
