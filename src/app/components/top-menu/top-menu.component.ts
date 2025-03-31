@@ -3,14 +3,14 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { DialogService } from 'primeng/dynamicdialog';
-import { ContactFormComponent } from '../contact-form/contact-form.component';
 import { ContactUsComponent } from '../modals/contact-us/contact-us.component';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 @Component({
   selector: 'async-top-menu',
   templateUrl: './top-menu.component.html',
   standalone: true,
-  imports: [CommonModule, ButtonModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, ButtonModule, RouterLink, RouterLinkActive, OverlayPanelModule],
   styleUrl: './top-menu.component.scss',
   providers: [DialogService],
 })

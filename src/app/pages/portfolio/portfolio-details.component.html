@@ -1,14 +1,14 @@
 <section class="container flex-col project-details pt-24 px-10">
   @if (project$ | async; as project) {
-  <div class="flex gap-8 mb-[100px]">
-    <figure class="w-1/2">
+  <div class="flex flex-row gap-8 mb-[100px] mobile:max-tablet:flex-col">
+    <figure class="w-1/2 mobile:max-tablet:w-full">
       <img
         [src]="'/images/portfolio/' + project.img"
         class="object-cover object-center h-[300px]"
         alt=""
       />
     </figure>
-    <div class="info w-1/2">
+    <div class="info w-1/2 mobile:max-tablet:w-full">
       <h1
         class="font-extrabold text-2xl tracking-wide text-gradient pb-2 cursor-pointer"
       >

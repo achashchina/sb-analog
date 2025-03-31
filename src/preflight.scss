@@ -18,6 +18,17 @@
     font-family: "KumbhSans", system-ui, sans-serif !important;
   }
 
+  .p-element.top-menu-button {
+    button.p-button {
+      @apply bg-accent border-accent rounded-lg;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+   
+  }
+
   button {
     &.p-button-accent {
       @apply bg-accent border-accent rounded-3xl p-2;

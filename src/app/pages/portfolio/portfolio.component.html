@@ -7,10 +7,10 @@
       <div *ngIf="projects$ | async as data">
         <div
           *ngFor="let project of data.projects; let i = index"
-          class="flex gap-8 mb-[100px]"
+          class="flex gap-8 mb-[100px] mobile:max-tablet:flex-col"
         >
           <figure
-            class="w-1/2"
+            class="w-1/2 mobile:max-tablet:w-full mobile:max-tablet:order-1"
             [ngClass]="{ 'order-2': i % 2 === 0, 'order-1': i % 2 !== 0 }"
           >
             <img
@@ -20,7 +20,7 @@
             />
           </figure>
           <div
-            class="info w-1/2"
+            class="info w-1/2 mobile:max-tablet:w-full"
             [ngClass]="{ 'order-1': i % 2 === 0, 'order-2': i % 2 !== 0 }"
           >
             <div class="preview_block_items">

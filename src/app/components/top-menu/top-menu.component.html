@@ -1,9 +1,18 @@
 <header
-  class="bg-white flex justify-between items-center h-20 text-lg px-10 py-5"
+  class="bg-white flex justify-between items-center h-20 text-lg px-10 py-5 mobile:max-tablet:px-5"
 >
   <div class="logo flex items-center w-1/3 relative mobile:max-tablet:w-2/3">
-  <img class="h-8 absolute" routerLink="/" src="/images/logo-transparent.svg" />
-      <!-- <a routerLink="/">
+    <img
+      class="h-8 absolute hidden tablet:block"
+      routerLink="/"
+      src="/images/logo-transparent.svg"
+    />
+    <img
+      class="h-8 absolute tablet:hidden"
+      routerLink="/"
+      src="/images/logo-mobile.svg"
+    />
+    <!-- <a routerLink="/">
 
       <div class="flex ml-7">
         <span class="text-black mobile:max-tablet:flex mobile:max-tablet:items-center">asyncIT</span>
@@ -13,21 +22,52 @@
       </div>
     </a> -->
   </div>
+  <div class="tablet:hidden">
+    <p-button
+      (onClick)="op.toggle($event)"
+      class="top-menu-button text-white"
+      icon="pi pi-bars"
+      label=""
+    />
+    <p-overlayPanel #op>
+      <div class="flex flex-col gap-3 w-48">
+        <div>
+          <ul class="list-none p-0 m-0 flex flex-col gap-3">
+            <li class="flex items-center gap-2 mb-4">
+              <span>
+                <a
+                  routerLink="/landing"
+                  routerLinkActive="is-active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  ><i class="pi pi-home"></i> home</a
+                ></span
+              >
+            </li>
+            <li class="flex items-center gap-2 mb-4">
+              <span>
+                <a routerLink="/blog" routerLinkActive="is-active">
+                  <i class="pi pi-objects-column"></i> blog
+                </a>
+              </span>
+            </li>
+            <li class="flex items-center gap-2 mb-4">
+              <span>
+                <a routerLink="/portfolio" routerLinkActive="is-active">
+                  <i class="pi pi-trophy"></i> portfolio
+                </a>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </p-overlayPanel>
+  </div>
   <div
     class="menu-items flex items-center justify-between w-1/3 mobile:max-tablet:hidden"
   >
-    <span> <a routerLink="/landing" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:true}">home</a></span>
-    <!-- <span>about</span>
-    <span>pricing</span> -->
-    <span>contacts</span>
-    <span>
-      <a routerLink="/blog" routerLinkActive="is-active" >blog</a>
-    </span>
-    <span>
-      <a routerLink="/portfolio" routerLinkActive="is-active">portfolio</a>
-    </span>
+    <ng-container *ngTemplateOutlet="menuItems; context: {}"> </ng-container>
   </div>
-  <div class="action flex justify-end w-1/3">
+  <div class="action flex justify-end w-1/3 mobile:max-tablet:hidden">
     <button
       pButton
       label="Contact Us"
@@ -36,3 +76,23 @@
     ></button>
   </div>
 </header>
+
+<ng-template #menuItems>
+  <span>
+    <a
+      routerLink="/landing"
+      routerLinkActive="is-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >home</a
+    ></span
+  >
+  <!-- <span>about</span>
+  <span>pricing</span> -->
+  <!-- <span>contacts</span> -->
+  <span>
+    <a routerLink="/blog" routerLinkActive="is-active">blog</a>
+  </span>
+  <span>
+    <a routerLink="/portfolio" routerLinkActive="is-active">portfolio</a>
+  </span>
+</ng-template>
