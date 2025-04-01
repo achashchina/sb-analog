@@ -5,14 +5,16 @@
       <async-canvas [wrapper]="wrapper"></async-canvas>
     </div>
 
-    <div class="hero-section relative container to-animate">
+    <div #animated class="hero-section relative container to-animate">
       <div class="w-full lg:w-1/2 relative">
         <h1
           class="text-5xl text-gradient text-animation w-full text-left mobile:max-tablet:text-3xl mobile:max-tablet:text-center"
         >
           Your Vision, Our Code – Custom Web Solutions That Inspire
         </h1>
-        <p class="text-white leading-8 my-8 text-animation w-full text-left mobile:max-tablet:text-center">
+        <p
+          class="text-white leading-8 my-8 text-animation w-full text-left mobile:max-tablet:text-center"
+        >
           At <span class="text-gradient">Async-it</span>, we believe every
           project is unique. Our expert developers and designers work closely
           with you to craft web solutions that are not only functional but also
@@ -27,27 +29,24 @@
       <div class="blur-circle blue"></div>
       <div class="blur-circle green"></div>
     </div>
-    <div class="to-animate container py-14">
-      <h2 class="text-5xl text-gradient text-center text-animation w-full mobile:max-tablet:text-3xl">
+    <div #animated class="to-animate container py-14">
+      <h2
+        class="text-5xl text-gradient text-center text-animation w-full mobile:max-tablet:text-3xl"
+      >
         We offer a complete range of web services, from initial development to
         maintenance and improvements.
       </h2>
     </div>
   </div>
 
-  <!-- <div class="flex">
-    <div class="w-1/4 text-white">Technologies</div>
-    <div class="w-3/4">
-      <async-carousel></async-carousel>
-    </div>
-  </div> -->
-
   <div class="container justify-between items-center gap-6 pb-14 !mt-4">
     <div
+      #animated
       class="to-animate flex mobile:max-tablet:flex-col mobile:max-tablet:items-center justify-between px-6 w-full"
     >
       <async-card
         [settings]="{
+          mode: 0,
           icon: 'images/colab.svg',
           header: 'Technical Support',
           body: 'We provide 24/7 access to highly skilled technical support engineers, ensuring exceptional expertise and reliable top-tier performance.'
@@ -55,6 +54,7 @@
       ></async-card>
       <async-card
         [settings]="{
+          mode: 0,
           icon: 'images/lock.svg',
           header: 'Web Application Development',
           body: 'We build exceptional web applications with a focus on practical solutions, elegant and intelligent design, clean code, and solid architecture.'
@@ -62,6 +62,7 @@
       ></async-card>
       <async-card
         [settings]="{
+          mode: 0,
           icon: 'images/chart.svg',
           header: 'IT Strategy & Consulting',
           body: ' Our IT consulting services empower you to prioritize your core needs while aligning software technology and financial goals with your operational objectives.'
@@ -80,53 +81,113 @@
       <!-- <div class="job-content-title">Our Technologies Stack</div> -->
       <div class="w-layout-grid">
         <div class="technologies-item">
-          <img src="/images/js.avif" alt="" class="technologies-item-logo" />
+          <img
+            src="/images/js.avif"
+            alt="js"
+            class="technologies-item-logo"
+            width="181"
+            height="35"
+          />
         </div>
         <div class="technologies-item">
-          <img src="/images/node.avif" alt="" class="technologies-item-logo" />
+          <img
+            src="/images/node.avif"
+            alt="node"
+            class="technologies-item-logo"
+            width="181"
+            height="35"
+          />
         </div>
         <div class="technologies-item">
           <img
             src="/images/angular.avif"
-            alt=""
+            alt="angular"
             class="technologies-item-logo"
+            width="181"
+            height="35"
           />
         </div>
         <div class="technologies-item">
-          <img src="/images/react.avif" alt="" class="technologies-item-logo" />
+          <img
+            src="/images/react.avif"
+            alt="react"
+            class="technologies-item-logo"
+            width="181"
+            height="35"
+          />
         </div>
         <div class="technologies-item">
-          <img src="/images/html5.avif" alt="" class="technologies-item-logo" />
+          <img
+            src="/images/html5.avif"
+            alt="html5"
+            class="technologies-item-logo"
+            width="181"
+            height="35"
+          />
         </div>
         <div class="technologies-item">
-          <img src="/images/sass.avif" alt="" class="technologies-item-logo" />
+          <img
+            src="/images/sass.avif"
+            alt="sass"
+            class="technologies-item-logo"
+            width="181"
+            height="35"
+          />
         </div>
         <div class="technologies-item">
-          <img src="/images/git.avif" alt="" class="technologies-item-logo" />
+          <img
+            src="/images/git.avif"
+            alt="git"
+            class="technologies-item-logo"
+            width="181"
+            height="35"
+          />
         </div>
         <div class="technologies-item">
           <img
             src="/images/github.avif"
-            alt=""
+            alt="github"
             class="technologies-item-logo"
+            width="181"
+            height="35"
           />
         </div>
         <div class="technologies-item">
-          <img src="/images/npm.avif" alt="" class="technologies-item-logo" />
+          <img
+            src="/images/npm.avif"
+            alt="npm"
+            class="technologies-item-logo"
+            width="181"
+            height="35"
+          />
         </div>
         <div class="technologies-item">
           <img
             src="/images/webpack.avif"
-            alt=""
+            alt="webpack"
             class="technologies-item-logo"
+            width="181"
+            height="35"
           />
         </div>
         <div class="technologies-item">
-          <img src="/images/rest.avif" alt="" class="technologies-item-logo" />
+          <img
+            src="/images/rest.avif"
+            alt="rest"
+            class="technologies-item-logo"
+            width="181"
+            height="35"
+          />
         </div>
 
         <div class="technologies-item">
-          <img src="/images/mongo.avif" alt="" class="technologies-item-logo" />
+          <img
+            src="/images/mongo.avif"
+            alt="mongo"
+            class="technologies-item-logo"
+            width="181"
+            height="35"
+          />
         </div>
       </div>
     </div>
@@ -135,15 +196,18 @@
 
 <div class="flex bg-body flex-col py-14">
   <div class="container flex-col relative">
-    <h2 class="text-5xl leading-normal text-gradient text-left mobile:max-tablet:text-3xl">
+    <h2
+      class="text-5xl leading-normal text-gradient text-left mobile:max-tablet:text-3xl"
+    >
       Compelling Reasons To Choose Us
     </h2>
     <div
+      #animated
       class="to-animate flex mobile:max-tablet:flex-col mobile:max-tablet:items-center justify-center gap-6 pt-14 text-white"
     >
       <async-card
-        [mode]="mode.YES"
         [settings]="{
+          mode: 1,
           header: 'Expert Team',
           subheader: 'With Proven Industry Experience',
           slug: '/blog/expert-team',
@@ -155,8 +219,8 @@
         }"
       ></async-card>
       <async-card
-        [mode]="mode.YES"
         [settings]="{
+          mode: 1,
           header: 'Fresh Approach',
           subheader: 'With a Focus on Innovation',
           slug: '/blog/fresh-approach',
@@ -168,8 +232,8 @@
         }"
       ></async-card>
       <async-card
-        [mode]="mode.YES"
         [settings]="{
+          mode: 1,
           header: 'Passion for Excellence',
           subheader: 'And Building Long-Term Relationships',
           slug: '/blog/building-long-term-relationships',

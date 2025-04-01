@@ -1,8 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   Inject,
   OnInit,
+  QueryList,
+  ViewChildren,
   ViewEncapsulation,
   forwardRef,
 } from '@angular/core';
@@ -12,21 +15,8 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { CanvasComponent } from '../../components/canvas/canvas.component';
 import { CardComponent } from '../../components/card/card.component';
 import { ContactFormComponent } from '../../components/contact-form/contact-form.component';
-import { HttpClient } from '@angular/common/http';
 import { TypewriterComponent } from './typewriter/typewriter.component';
-import { TranslateModule } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
-
-interface Industry {
-  img: string;
-  name: string;
-  description: string;
-}
-
-export enum ChooseUs {
-  NO,
-  YES,
-}
 
 @Component({
   selector: 'async-landing',
@@ -38,34 +28,24 @@ export enum ChooseUs {
     forwardRef(() => CardComponent),
     ContactFormComponent,
     TypewriterComponent,
-    TranslateModule,
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
   encapsulation: ViewEncapsulation.None,
   providers: [DialogService],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class LandingComponent implements OnInit {
-  mode = ChooseUs;
-  currentIndustry?: Industry;
+  @ViewChildren('animated') toAnimateEls!: QueryList<ElementRef>;
   activePicture: number = 0;
+
   constructor(
     @Inject('IS_BROWSER') public isBrowser: boolean,
-    private readonly httpClient: HttpClient,
     private title: Title,
     private meta: Meta
   ) {}
 
   ngOnInit(): void {
-    if (this.isBrowser) {
-      const observer = this.addObserver();
-      const tags = document.querySelectorAll('.to-animate');
-      tags.forEach((tag) => {
-        observer?.observe(tag);
-      });
-    }
-
     this.title.setTitle('Async-IT | Custom Web Solutions That Inspire');
     this.meta.updateTag({
       name: 'description',
@@ -92,10 +72,19 @@ export default class LandingComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit() {
+    if (this.isBrowser) {
+      const observer = this.addObserver();
+      this.toAnimateEls.forEach((el: ElementRef) => {
+        observer?.observe(el.nativeElement);
+      });
+    }
+  }
+
   private addObserver() {
     return new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
           entry.isIntersecting
             ? entry.target.classList.add('in-view')
             : entry.target.classList.remove('in-view');

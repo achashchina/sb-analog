@@ -1,13 +1,11 @@
-import { Component, Inject, LOCALE_ID } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
-import { TranslateModule } from '@ngx-translate/core'; // <--- standalone only
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'async-root',
   standalone: true,
-  imports: [RouterOutlet, TopMenuComponent, TranslateModule],
+  imports: [RouterOutlet, TopMenuComponent],
   template: `
     <async-top-menu></async-top-menu>
     <router-outlet />
@@ -24,15 +22,4 @@ import { TranslateService } from '@ngx-translate/core';
     }
   `,
 })
-export class AppComponent {
-  constructor(
-    @Inject(LOCALE_ID) public localeId: string,
-    private translate: TranslateService
-  ) {
-    // console.log(localeId);
-    // this.translate.addLangs(['de', 'en']);
-    // this.translate.setDefaultLang('en');
-    // this.translate.use(localeId);
-    // console.log(translate.instant('test.title'));
-  }
-}
+export class AppComponent {}

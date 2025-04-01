@@ -2,9 +2,11 @@ import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   Component,
+  ElementRef,
   HostListener,
   Inject,
   Input,
+  ViewChild,
 } from '@angular/core';
 
 interface Glitter {
@@ -24,6 +26,7 @@ interface Glitter {
   templateUrl: './canvas.component.html',
 })
 export class CanvasComponent implements AfterViewInit {
+  @ViewChild('canvas') canvasBlock!: ElementRef;
   @Input({ required: true }) wrapper: HTMLDivElement;
   private canvas?: HTMLCanvasElement | null;
   private ctx?: CanvasRenderingContext2D;
@@ -67,7 +70,7 @@ export class CanvasComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     if (this.isBrowser) {
-      this.canvas = document.querySelector('canvas') as HTMLCanvasElement;
+      this.canvas = this.canvasBlock.nativeElement as HTMLCanvasElement;
 
       setTimeout(() => {
         this.initializeCanvas();
