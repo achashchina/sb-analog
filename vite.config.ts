@@ -16,7 +16,6 @@ export default defineConfig(({ mode }) => ({
       {find: '~primeng', replacement: resolve(__dirname, 'node_modules/primeng')}
     ]
   },
-  
   plugins: [
     analog({
       content: {
