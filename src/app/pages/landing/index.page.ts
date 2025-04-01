@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   Inject,
   OnInit,
@@ -43,9 +44,9 @@ export enum ChooseUs {
   styleUrl: './landing.component.scss',
   encapsulation: ViewEncapsulation.None,
   providers: [DialogService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class LandingComponent implements OnInit {
-  industries?: Array<Industry>;
   mode = ChooseUs;
   currentIndustry?: Industry;
   activePicture: number = 0;
@@ -64,12 +65,6 @@ export default class LandingComponent implements OnInit {
         observer?.observe(tag);
       });
     }
-
-    this.getData().subscribe(
-      ({ industries }) => (
-        (this.industries = industries), (this.currentIndustry = industries[0])
-      )
-    );
 
     this.title.setTitle('Async-IT | Custom Web Solutions That Inspire');
     this.meta.updateTag({
@@ -95,12 +90,6 @@ export default class LandingComponent implements OnInit {
       name: 'canonical',
       content: 'https://async-it.co/',
     });
-  }
-
-  getData() {
-    return this.httpClient.get<{ industries: Array<Industry> }>(
-      '/data/data.json'
-    );
   }
 
   private addObserver() {
