@@ -14,6 +14,7 @@ import { ContactFormComponent } from '../../components/contact-form/contact-form
 import { HttpClient } from '@angular/common/http';
 import { TypewriterComponent } from './typewriter/typewriter.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 interface Industry {
   img: string;
@@ -36,7 +37,7 @@ export enum ChooseUs {
     forwardRef(() => CardComponent),
     ContactFormComponent,
     TypewriterComponent,
-    TranslateModule
+    TranslateModule,
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
@@ -50,7 +51,9 @@ export default class LandingComponent implements OnInit {
   activePicture: number = 0;
   constructor(
     @Inject('IS_BROWSER') public isBrowser: boolean,
-    private readonly httpClient: HttpClient
+    private readonly httpClient: HttpClient,
+    private title: Title,
+    private meta: Meta
   ) {}
 
   ngOnInit(): void {
@@ -67,6 +70,31 @@ export default class LandingComponent implements OnInit {
         (this.industries = industries), (this.currentIndustry = industries[0])
       )
     );
+
+    this.title.setTitle('Async-IT | Custom Web Solutions That Inspire');
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'We build unique and powerful websites tailored to your vision. Get expert development with zero bureaucracy and full transparency.',
+    });
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Async-IT | Custom Web Solutions That Inspire',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content:
+        'We create functional and beautiful web experiences for your business.',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://async-it.co/images/og/og-landing.webp',
+    });
+    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+    this.meta.updateTag({
+      name: 'canonical',
+      content: 'https://async-it.co/',
+    });
   }
 
   getData() {
