@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { injectContentFiles } from '@analogjs/content';
@@ -15,6 +15,11 @@ import { injectContentFiles } from '@analogjs/content';
     background: #f6f6f6;
   }`,
 })
-export default class BlogComponent {
+export default class BlogComponent implements OnInit {
   posts = injectContentFiles<any>();
+
+  ngOnInit(): void {
+    // console.log(this.posts);
+    
+  }
 }
