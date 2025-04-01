@@ -55,4 +55,4 @@ By choosing AsyncIT, you get more than just a development team - you find a tech
 
 AsyncIT - Your dedicated team of Angular and frontend specialists for successful digital business transformation.
 
-[Contact us] to discuss your project with our Angular experts.
+Contact us to discuss your project with our Angular experts.
