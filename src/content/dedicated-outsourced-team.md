@@ -2,7 +2,7 @@
 title: Empowering Your Business with a Dedicated Outsourced IT Team - The Async-IT Advantage
 slug: dedicated-outsourced-team
 description: In today's fast-paced digital world, companies—big and small—need more than just technical expertise. They need a strategic partner who understands that technology is not an end in itself but a powerful tool to solve real business challenges. At Async-IT, we are that partner. We are a mature, dedicated team of professionals specializing in frontend development with expertise in Angular, RxJs, NgRx, TypeScript, Node.js, and much more. More importantly, we deliver results by solving business problems, allowing you to focus on what you do best—running your business.
-coverImage: https://images.unsplash.com/photo-1492366254240-43affaefc3e3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGVkaWNhdGVkJTIwdGVhbXxlbnwwfHwwfHx8MA%3D%3D
+coverImage: https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 date: '2025-03-24'
 ---
 

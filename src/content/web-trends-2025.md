@@ -2,7 +2,7 @@
 title: Web Design Trends for 2025. How to Keep Your Website Modern and Engaging
 slug: web-trends-2025
 description: Web design trends change quickly, and keeping up is crucial to making your website attractive, functional, and user-friendly.
-coverImage: https://images.unsplash.com/photo-1476357471311-43c0db9fb2b4?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+coverImage: https://images.unsplash.com/photo-1472457897821-70d3819a0e24?q=80&w=3538&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 date: '2025-01-21'
 ---
 

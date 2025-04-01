@@ -2,7 +2,7 @@
 title: Expert Team - The Async-IT Why It Is Important
 slug: expert-team
 description:  AsyncIT is a team of experienced frontend developers specializing in Angular, React, and Node.js. We create high-quality, scalable solutions for HealthCare, E-commerce, and other industries. Our experts with over 7 years of experience are ready to become your dedicated team for implementing any frontend projects.
-coverImage: https://images.unsplash.com/photo-1475506631979-72412c606f4d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fGZyZWUlMjBpbWFnZXMlMjBleHBlcnQlMjB0ZWFtfGVufDB8fDB8fHww
+coverImage: https://images.unsplash.com/photo-1472457974886-0ebcd59440cc?q=80&w=3538&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 date: '2025-03-30'
 ---
 
