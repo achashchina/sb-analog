@@ -21,23 +21,23 @@ export default class BlogPostComponent {
   constructor(private title: Title, private meta: Meta) {
     const post = toSignal(this.post$, { initialValue: null })();
 
-    this.title.setTitle(`${post.attributes?.title} | Async-IT`);
+    this.title.setTitle(`${post?.attributes?.title} | Async-IT`);
     this.meta.updateTag({
       name: 'description',
-      content: post.attributes?.description
+      content: post?.attributes?.description
     });
-    this.meta.updateTag({ property: 'og:title', content:post.attributes?.title });
+    this.meta.updateTag({ property: 'og:title', content:post?.attributes?.title });
     this.meta.updateTag({
       property: 'og:description',
-      content: post.attributes?.description,
+      content: post?.attributes?.description,
     });
     this.meta.updateTag({
       property: 'og:image',
-      content: post.attributes?.coverImage,
+      content: post?.attributes?.coverImage,
     });
     this.meta.updateTag({
       name: 'canonical',
-      content: `https://async-it.com/blog/${post.slug}`,
+      content: `https://async-it.com/blog/${post?.slug}`,
     });
   }
 
