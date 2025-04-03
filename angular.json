@@ -37,7 +37,11 @@
           "defaultConfiguration": "development",
           "options": {
             "buildTarget": "blog:build",
-            "port": 5173
+            "port": 5173,
+            "styles": [
+              "src/preflight.scss",
+              "./node_modules/ngx-toastr/toastr.css"
+            ]
           },
           "configurations": {
             "development": {

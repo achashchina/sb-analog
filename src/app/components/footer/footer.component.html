@@ -1,0 +1,99 @@
+<footer class="footer container">
+  <div class="footer-left flex flex-col justify-between px-3">
+    <img routerLink="/" alt="Logo" src="/images/logo-transparent.svg" />
+    <span
+      class="text-sm text-gray-500 sm:text-center dark:text-gray-400 text-nowrap"
+      >© 2024
+      <a
+        routerLink="/home"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:underline"
+        >asyncIT</a
+      >. All Rights Reserved.
+    </span>
+  </div>
+
+  <div class="footer-right">
+    <div class="footer-top">
+      <div class="top-col-1 px-3">
+        <h3 class="text-md font-bold mb-4">Blog</h3>
+
+        @for (post of posts; track $index) {
+        <div class="flex gap-8 bg-white mb-3">
+          <div class="w-4/5">
+            <a [routerLink]="['/blog', post.slug]">
+              <h6 class="text-xs">
+                {{ post.attributes.title }}
+              </h6>
+            </a>
+          </div>
+          <div class="w-1/5">
+            <img class="post__image" [src]="post.attributes.coverImage" />
+          </div>
+        </div>
+        }
+      </div>
+      <div class="top-col-2">
+        <h3 class="text-md font-bold mb-4">Portfolio</h3>
+
+        @if (projects$ | async; as projects) {
+            @for (project of projects.projects; track $index) {
+                <div class="flex gap-8 bg-white mb-3">
+                  <div class="w-4/5">
+                    <a [routerLink]="['/portfolio', project.slug]">
+                      <h6 class="text-xs">
+                        {{ project.name }}
+                      </h6>
+                    </a>
+                  </div>
+                  <div class="w-1/5">
+                    <img class="post__image" [src]="'/images/portfolio/' + project.img" />
+                  </div>
+                </div>
+                }
+        }
+  
+      </div>
+    </div>
+
+    <div class="footer-bottom flex items-end justify-between text-sm pt-3">
+      <ul
+        class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
+      >
+        <li>
+          <a
+            routerLink="/home"
+            routerLinkActive="is-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="hover:underline me-4 md:me-6"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a href="#contact-form" class="hover:underline me-4 md:me-6"
+            >Contacts</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/blog"
+            routerLinkActive="is-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="hover:underline me-4 md:me-6"
+            >Blog</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/portfolio"
+            routerLinkActive="is-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="hover:underline me-4 md:me-6"
+            >Portfolio</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
