@@ -476,17 +476,3 @@ h1 {
     right: 0%;
   }
 }
-
-.console-img {
-  position: relative;
-  background: url("/images/console.svg") no-repeat;
-  background-size: 100%;
-  background-position: bottom -15px left 75px;
-  overflow: hidden;
-  right: -27%;
-
-  img {
-    position: absolute;
-    top: 70%;
-  }
-}
