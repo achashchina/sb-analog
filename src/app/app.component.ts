@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
   standalone: true,
   imports: [RouterOutlet, TopMenuComponent, FooterComponent],
   template: `
+    <div class="scroll-watcher"></div>
     <async-top-menu></async-top-menu>
     <router-outlet />
     <async-footer></async-footer>
