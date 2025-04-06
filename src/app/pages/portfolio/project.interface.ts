@@ -7,4 +7,5 @@ export interface Project {
   industry: string;
   challenges?: string[];
   solutions?: string[];
+  feedbacks?: string[];
 }

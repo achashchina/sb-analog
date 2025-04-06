@@ -1,5 +1,34 @@
 {
   "projects": [
+    
+    {
+      "img": "healthcare-project.png",
+      "name": "HealthTrack - Intelligent Patient Follow-up System",
+      "slug": "angular-saas-healthcare-project",
+      "description": "A multi-specialty healthcare clinic network in the German market serving tens of thousands of patients annually. The healthcare provider specializes in both routine and specialized medical procedures, with a focus on continuing care.",
+      "techStack": ["Angular", "HTML5", "CSS3", "Web Development"],
+      "industry": "Healthcare",
+      "challenges": [
+        "Missed Appointments: 32% of patients were missing scheduled follow-up appointments",
+        "Post-Procedure Care: Critical care instructions were often forgotten or misunderstood",
+        "Staff Burden: Medical staff spent 15+ hours weekly making manual reminder calls",
+        "Patient Satisfaction: Surveys showed lower satisfaction scores due to communication gaps",
+        " Revenue Loss: An estimated €380,000 in annual revenue was lost due to missed appointments"
+      ],
+      "solutions": [
+        "Multi-channel Communication: Automated reminders via SMS, email, or voice calls based on patient preference",
+        "Procedure-Specific Templates: Customized reminder content and timing based on procedure type",
+        "AI Personalization Engine: Messages tailored to patient history, demographics, and previous response patterns",
+        "Bidirectional Communication: Simple response options allow patients to confirm, reschedule, or request assistance",
+        "Care Plan Integration: Post-procedure instructions and medication reminders integrated into the follow-up sequence",
+        "Feedback Collection: Automated collection of patient experience data at key touchpoints"
+      ],
+      "feedbacks": [
+        "'The reminders are so helpful - they tell me exactly what I need to do before my appointment and send me the prep instructions again so I don't have to search for that paper they gave me.' - M.S., Patient",
+        "'I appreciate that the messages seem to know my situation. They remind me about things relevant to my condition rather than generic information.' - T.M., Patient",
+        "'Our staff now spends significantly less time on the phone and more time focusing on patient care. The system has transformed our workflow.' - Dr. K.W., Medical Director"
+      ]
+    },
     {
       "img": "minebier.png",
       "name": "Minebier.dk: Smart Beehive Monitoring for Beekeepers",
@@ -20,6 +49,9 @@
         "Efficient Data Streaming: Integrating RxJS for managing data streams enabled smooth real-time updates of hive conditions.",
         "WebSocket Integration: To achieve instant data updates, a WebSocket solution was incorporated, ensuring that users receive immediate notifications as soon as data changes occur.",
         "Performance Optimization: Advanced web performance optimization techniques were applied to reduce load times and enhance the overall user experience."
+      ],
+      "feedbacks": [
+        "The development of Minebier.dk was a turning point for our business. The combination of modern technologies and an intuitive interface allows us to monitor our hives in real-time. The use of WebSocket for instant updates was particularly impressive, ensuring we are always informed of the latest conditions. This collaboration not only delivered a high-quality product but also significantly increased our customer confidence. - Representative, Minebier.dk"
       ]
     },
     {
@@ -50,14 +82,7 @@
       ],
       "industry": "Education"
     },
-    {
-      "img": "healthcare-project.png",
-      "name": "Angular SaaS Healthcare Project",
-      "slug": "angular-saas-healthcare-project",
-      "description": "A SaaS Healthcare Project utilizing the Angular framework for the frontend. Designed for scalability and efficiency, ensuring secure and responsive performance for healthcare services.",
-      "techStack": ["Angular", "HTML5", "CSS3", "Web Development"],
-      "industry": "Healthcare"
-    },
+
     {
       "img": "oAuth-app.png",
       "name": "Angular Application with OAuth",

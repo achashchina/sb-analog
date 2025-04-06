@@ -25,7 +25,9 @@
   </div>
   <div>
     <div class="flex w-full gap-8 mb-4 mobile:max-tablet:flex-col">
-      <div class="flex flex-col w-1/2 p-4 border border-gray-200 rounded-xl mobile:max-tablet:w-full">
+      <div
+        class="flex flex-col w-1/2 p-4 border border-gray-200 rounded-xl mobile:max-tablet:w-full"
+      >
         <h2
           class="font-extrabold text-2xl tracking-wide text-blue-gradient pb-2"
         >
@@ -37,7 +39,9 @@
           }
         </ol>
       </div>
-      <div class="flex flex-col w-1/2 p-4 border border-gray-200 rounded-xl mobile:max-tablet:w-full">
+      <div
+        class="flex flex-col w-1/2 p-4 border border-gray-200 rounded-xl mobile:max-tablet:w-full"
+      >
         <h2
           class="font-extrabold text-2xl tracking-wide text-blue-gradient pb-2"
         >
@@ -54,27 +58,26 @@
     <h2 class="font-extrabold text-2xl tracking-wide text-blue-gradient pb-2">
       What out client says
     </h2>
+    @for (feedback of project.feedbacks; track $index) {
     <p class="testimonials relative pl-5 mb-10">
-      "The development of Minebier.dk was a turning point for our business. The
-      combination of modern technologies and an intuitive interface allows us to
-      monitor our hives in real-time. The use of WebSocket for instant updates
-      was particularly impressive, ensuring we are always informed of the latest
-      conditions. This collaboration not only delivered a high-quality product
-      but also significantly increased our customer confidence." -
-      Representative, Minebier.dk
+      {{ feedback }}
     </p>
+    }
   </div>
   }
 
-  <div
-  class="flex py-6 bg-white  mobile:max-tablet:w-full"
-  id="contact-form"
->
-  <div class="w-full flex  mobile:max-tablet:w-full mobile:max-tablet:flex-col">
-    <h2 class="flex w-1/3 my-4 text-body font-bold text-2xl mobile:max-tablet:w-full">Contact us and we’ll get back to you shortly!</h2>
-    <div class="w-2/3 shadow-2xl mobile:max-tablet:w-full">
-      <async-contact-form></async-contact-form>
+  <div class="flex py-6 bg-white mobile:max-tablet:w-full" id="contact-form">
+    <div
+      class="w-full flex mobile:max-tablet:w-full mobile:max-tablet:flex-col"
+    >
+      <h2
+        class="flex w-1/3 my-4 text-body font-bold text-2xl mobile:max-tablet:w-full"
+      >
+        Contact us and we’ll get back to you shortly!
+      </h2>
+      <div class="w-2/3 shadow-2xl mobile:max-tablet:w-full">
+        <async-contact-form></async-contact-form>
+      </div>
     </div>
   </div>
-</div>
 </section>
