@@ -1,4 +1,5 @@
-<footer class="footer">
+<footer class="footer" [ngClass]="{ '!shadow-none': !itsFooter() }">
+  @if (itsFooter()) {
   <div class="footer-left flex flex-col justify-between px-3">
     <img routerLink="/" alt="Logo" src="/images/logo-transparent.svg" />
     <span
@@ -13,10 +14,18 @@
       >. All Rights Reserved.
     </span>
   </div>
+  } @else {
+    <button
+      pButton
+      label="Contact Us"
+      class="p-button-accent w-52 text-white"
+      (click)="contactUsOpen()"
+    ></button>
+  }
 
   <div class="footer-right">
     <div class="footer-top">
-      <div class="top-col-1 px-3">
+      <div class="top-col-1 px-3 mobile:max-tablet:px-0">
         <h3 class="text-md font-bold mb-4">Blog</h3>
 
         @for (post of posts; track $index) {
@@ -37,23 +46,24 @@
       <div class="top-col-2">
         <h3 class="text-md font-bold mb-4">Portfolio</h3>
 
-        @if (projects$ | async; as projects) {
-            @for (project of projects.projects; track $index) {
-                <div class="flex gap-8 bg-white mb-3">
-                  <div class="w-4/5">
-                    <a [routerLink]="['/portfolio', project.slug]">
-                      <h6 class="text-xs">
-                        {{ project.name }}
-                      </h6>
-                    </a>
-                  </div>
-                  <div class="w-1/5">
-                    <img class="post__image" [src]="'/images/portfolio/' + project.img" />
-                  </div>
-                </div>
-                }
-        }
-  
+        @if (projects$ | async; as projects) { @for (project of
+        projects.projects; track $index) {
+        <div class="flex gap-8 bg-white mb-3">
+          <div class="w-4/5">
+            <a [routerLink]="['/portfolio', project.slug]">
+              <h6 class="text-xs">
+                {{ project.name }}
+              </h6>
+            </a>
+          </div>
+          <div class="w-1/5">
+            <img
+              class="post__image"
+              [src]="'/images/portfolio/' + project.img"
+            />
+          </div>
+        </div>
+        } }
       </div>
     </div>
 

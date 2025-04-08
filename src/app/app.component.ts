@@ -12,7 +12,7 @@ import { Subscription, filter, take } from 'rxjs';
     <div class="scroll-watcher"></div>
     <async-top-menu></async-top-menu>
     <router-outlet />
-    <async-footer></async-footer>
+    <async-footer [itsFooter]="true"></async-footer>
   `,
   styles: `
     :host {

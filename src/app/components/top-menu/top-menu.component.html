@@ -26,9 +26,9 @@
   </div>
   <div class="tablet:hidden">
     <p-button
-      (onClick)="op.toggle($event)"
+      (onClick)="toggleMenu()"
       class="top-menu-button text-white"
-      icon="pi pi-bars"
+      [icon]="menuIcon"
       label=""
     />
     <p-overlayPanel #op>
@@ -72,6 +72,11 @@
       </div>
     </p-overlayPanel>
   </div>
+
+  <div class="mobile-menu " [ngClass]="{ 'opened':  mobileMenuOpened()}">
+    <async-footer [itsFooter]="false"></async-footer>
+  </div>
+
   <div
     class="menu-items flex items-center justify-between w-1/3 mobile:max-tablet:hidden"
   >

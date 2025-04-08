@@ -1,13 +1,39 @@
 header {
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    position: fixed;
-    width: 100vw;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100vw;
 }
 
-.is-active{
-    color: #fa5255;
-    font-weight: 900;
+.is-active {
+  color: #fa5255;
+  font-weight: 900;
 }
+
+.mobile-menu {
+  bottom: 0;
+  z-index: 99;
+  width: 100vw;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #fff;
+  max-height: calc(100vh - 73px);
+  transition: transform 0.8s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+  .mobile-menu {
+    top: 73px;
+    left: auto;
+    right: -100vw;
+    padding: 40px 0 20px;
+
+    &.opened {
+        transform: translate3d(-100vw, 0, 0);
+    }
+  }
+}
+
