@@ -30,7 +30,7 @@ import { withComponentInputBinding } from '@angular/router';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideFileRouter(withComponentInputBinding()),
+    provideFileRouter(withComponentInputBinding() ),
     provideHttpClient(
       withFetch(),
       withInterceptors([requestContextInterceptor])

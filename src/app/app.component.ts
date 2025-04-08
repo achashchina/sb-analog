@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, effect, Inject, OnDestroy } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { Subscription, filter, take } from 'rxjs';
 
 @Component({
   selector: 'async-root',
@@ -25,4 +26,23 @@ import { FooterComponent } from './components/footer/footer.component';
     }
   `,
 })
-export class AppComponent {}
+export class AppComponent implements OnDestroy {
+  private subscriptions = new Subscription();
+
+  constructor(
+    @Inject('IS_BROWSER') public isBrowser: boolean,
+    private router: Router
+  ) {
+    effect(() => {
+      this.subscriptions.add(
+        this.router.events
+          .pipe(filter((event) => event instanceof NavigationEnd))
+          .subscribe(() => (isBrowser ? window.scrollTo({ top: 0 }) : null))
+      );
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+}

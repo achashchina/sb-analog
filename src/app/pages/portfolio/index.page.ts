@@ -14,6 +14,12 @@ import { ContactUsComponent } from '../../components/modals/contact-us/contact-u
   templateUrl: './portfolio.component.html',
   imports: [CommonModule, ButtonModule, NgForOf, NgIf, AsyncPipe, RouterLink],
   providers: [DialogService],
+  styles: `
+  :host {
+    min-height: 100vh;
+    display: block;
+    background: #f6f6f6;
+  }`,
 })
 export default class PortfolioPage implements OnInit {
   projects$: Observable<{ projects: Project[] }>;
