@@ -13,6 +13,7 @@ header {
 }
 
 .mobile-menu {
+  display: none;
   bottom: 0;
   z-index: 99;
   width: 100vw;
@@ -26,14 +27,14 @@ header {
 
 @media (max-width: 1024px) {
   .mobile-menu {
+    display: block;
     top: 73px;
     left: auto;
     right: -100vw;
     padding: 40px 0 20px;
 
     &.opened {
-        transform: translate3d(-100vw, 0, 0);
+      transform: translate3d(-100vw, 0, 0);
     }
   }
 }
-
