@@ -1,4 +1,53 @@
 <div class="flex bg-body flex-col pt-20">
+  <!-- <div class="px-10 bg-white flex-col w-full pb-60">
+    <h2 class="text-center text-3xl">DUVET COVER SET SIZE GUIDE</h2>
+    <p class="text-center">
+      Duvet cover set includes a duvet cover and two pillowcases. Please find
+      detailed sizing information below.
+    </p>
+    <p class="text-center">
+      If you don't see your size in the chart, please contact us - we'll be
+      happy to make it in your custom dimensions at no additional cost.
+    </p>
+    @for (product of products; track $index) {
+    <h6 class="text-center text-3xl my-5">{{ product.header }}</h6>
+    <table class="w-full" style="table-layout: fixed">
+      <colgroup>
+        <col style="width: 40%" />
+        <col style="width: 30%" />
+        <col style="width: 30%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Duvet Cover</th>
+          <th>Pillow Cases</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of product.list; track $index) {
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>
+            <div class="flex">
+              @for (d of item.duvet; track $index) {
+              <span class="w-1/2 pr-2 text-center">{{ d }}</span>
+              }
+            </div>
+          </td>
+          <td>
+            <div class="flex">
+              @for (p of item.pillow; track $index) {
+              <span class="w-1/2 pr-2 text-center">{{ p }}</span>
+              }
+            </div>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    }
+  </div> -->
   <div #wrapper class="wrapper relative w-full pt-14">
     <div class="w-full mobile:max-tablet:hidden">
       <async-canvas [wrapper]="wrapper"></async-canvas>
@@ -436,4 +485,3 @@
     </div>
   </div>
 </div>
-

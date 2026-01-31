@@ -42,5 +42,6 @@ export default class BlogComponent implements OnInit {
       name: 'canonical',
       content: 'https://async-it.co/blog',
     });
+
   }
 }

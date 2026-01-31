@@ -43,10 +43,38 @@ export default class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.getAllProducts()
     this.form = this.fb.group({
       date: this.fb.control('', Validators.required),
       iframe: this.fb.control('', Validators.required),
     });
+  }
+
+  getAllProducts() {
+    return this.httpClient
+      .get('https://b2b.housenordic.dk/api/products?username=chaschina.a.lv@gmail.com&password=DuuGMvuT')
+      .subscribe((source: any[]) => {
+        const allowed = [
+          '3960901', 
+          '3960915',
+          '3960923',
+          '1800060',
+          '3961004',
+          '1800065',
+          '3960922',
+          '3960924',
+          '3960927',
+          '3960928',
+          '3960919',
+          '3960921',
+          '3960925',
+          '3960920',
+          '3960916',
+        ]
+        
+        const result = source.filter(item => allowed.includes(item.sku));
+        // console.log(result);
+      });
   }
 
   addPost() {
